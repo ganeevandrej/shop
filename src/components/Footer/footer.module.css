@@ -1,0 +1,41 @@
+.footer {
+    display: flex;
+    width: 960px;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper {
+    width: 100%;
+    padding: 3em 1em 1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item {
+    width: 33.33333333%;
+}
+
+.item a {
+    text-decoration: none;
+}
+
+.item span {
+    font-size: 13px;
+    font-family: Roboto, Arial, sans-serif;
+    letter-spacing: .1em !important;
+    margin-right: 10px;
+}
+
+.item img {
+    width: 10px;
+}
+
+.footer .i {
+    font-size: 13px;
+    font-family: Roboto, Arial, sans-serif;
+    letter-spacing: .1em !important;
+    margin-top: 25px;
+    color: #929292;
+}

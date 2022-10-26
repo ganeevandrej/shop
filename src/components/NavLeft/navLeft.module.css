@@ -1,0 +1,34 @@
+.left {
+    display: flex;
+    align-items: center;
+    min-width: 640px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.leftBlock {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.ref{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: #363636;
+    padding: 10px 10px 10px 0;
+}
+
+.ref span {
+    font-size: 13px;
+    font-family: Roboto, Arial, sans-serif;
+    letter-spacing: .1em !important;
+}
+
+.ref img {
+    display: block;
+    width: 9px;
+    margin-left: 10px;
+}
