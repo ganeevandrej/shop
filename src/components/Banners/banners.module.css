@@ -1,0 +1,10 @@
+.bannerBlock {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bannerBlock img {
+    width: 725px;
+    border-radius: 5px;
+}

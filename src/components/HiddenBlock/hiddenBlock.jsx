@@ -2,7 +2,7 @@ import {NavLink} from "react-router-dom";
 import React from "react";
 import style from "./hiddenBlock.module.css";
 import cn from "classnames";
-import {IMG} from "../../constants/api";
+import {IMG_CATEGORY} from "../../constants/api";
 
 
 const HiddenBlock = ( {subcategory, categoryName} ) => {
@@ -12,7 +12,7 @@ const HiddenBlock = ( {subcategory, categoryName} ) => {
                 return (
                     <li key={id}>
                         <NavLink to={`/${categoryName}/${name}`}>
-                            <img src={IMG+image} alt=""/>
+                            <img src={IMG_CATEGORY+image} alt=""/>
                             <span>{name}</span>
                         </NavLink>
                     </li>

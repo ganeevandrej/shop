@@ -1,0 +1,14 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1057px;
+    margin: 0 auto 20px;
+}
+
+.wrapper p {
+    line-height: 1.4;
+    font-size: 16px;
+    text-align: justify;
+}

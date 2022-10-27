@@ -1,7 +1,7 @@
 import React from "react";
 import {useParams} from "react-router-dom";
 
-const SubCategoriesPage = () => {
+const DifferentPage = () => {
     const param = useParams();
     return (
         <>
@@ -10,4 +10,4 @@ const SubCategoriesPage = () => {
     );
 }
 
-export default SubCategoriesPage;
+export default DifferentPage;

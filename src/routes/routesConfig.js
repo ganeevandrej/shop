@@ -8,6 +8,7 @@ import LoginPage from "../containers/LoginPage/LoginPage";
 import AuthPage from "../containers/AuthPage/AuthPage";
 import RecoveryPage from "../containers/RecoveryPage/RecoveryPage";
 import SubCategoriesPage from "../containers/SubCategoriesPage/SubCategoriesPage";
+import DifferentPage from "../containers/DifferentPage/DifferentPage";
 
 
 const routesConfig = [
@@ -60,6 +61,11 @@ const routesConfig = [
         path: "/client_account/password/change",
         exact: true,
         component: RecoveryPage
+    },
+    {
+        path: "/different/:name",
+        exact: true,
+        component: DifferentPage
     }
 ];
 

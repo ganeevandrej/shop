@@ -17,14 +17,15 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    color: #363636;
     padding: 10px 10px 10px 0;
 }
 
 .ref span {
-    font-size: 13px;
+    font-size: 15px;
     font-family: Roboto, Arial, sans-serif;
     letter-spacing: .1em !important;
+    line-height: 36px;
+    color: #363636;
 }
 
 .ref img {

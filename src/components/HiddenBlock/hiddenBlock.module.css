@@ -1,10 +1,11 @@
 .blockHidden {
-    min-width: 640px;
+    min-width: 540px;
     position: absolute;
     box-shadow: 0px 1px 10px 2px rgb(0 0 0 / 20%);
     border-radius: 5px;
     display: none;
     top: 35px;
+    background-color: white;
     z-index: 15;
     list-style-type: none;
     margin: 0;

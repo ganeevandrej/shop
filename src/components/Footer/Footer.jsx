@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import style from"./footer.module.css";
 import {NavLink} from "react-router-dom";
+import instagram from "./img/instagram.png";
+import vk from "./img/vk.png";
+import facebook from "./img/facebook.png";
 
 const Footer = (props) => {
 
@@ -21,11 +24,11 @@ const Footer = (props) => {
                 {word.map(({title, value}) => {
                     return (
                         <div key={title} className={style.item}>
-                            <h3>{title}</h3>
-                            <div>
+                            <h2>{title}</h2>
+                            <div className={style.subBlock}>
                                 {value.map(item => {
                                     return (
-                                        <NavLink key={item} >
+                                        <NavLink key={item} to={`/different/${item}`}>
                                             <span>{item}</span>
                                         </NavLink>
                                     );
@@ -34,11 +37,11 @@ const Footer = (props) => {
                         </div>);
                 })}
                 <div className={style.item}>
-                    <h3>+7 (926) 321-21-21</h3>
-                    <div>
-                        <img src="src/components/Footer/img/instagram.png" alt=""/>
-                        <img src="src/components/Footer/img/vk.png" alt=""/>
-                        <img src="./img/facebook.png" alt=""/>
+                    <h2>+7 (926) 321-21-21</h2>
+                    <div className={style.subBlock}>
+                        <img src={instagram} alt=""/>
+                        <img src={vk} alt=""/>
+                        <img src={facebook} alt=""/>
                     </div>
                 </div>
             </div>

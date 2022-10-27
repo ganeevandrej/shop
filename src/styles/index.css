@@ -14,3 +14,34 @@ a.active span{
 .refHidden:hover .hidden {
   display: block;
 }
+
+.slick-slider .slick-prev {
+  left: 10px;
+  z-index: 10;
+}
+
+.slick-slider .slick-list {
+  border-radius: 5px 5px 5px 5px;
+}
+
+.slick-slider .slick-prev:before {
+  content: url("https://cdn-icons-png.flaticon.com/24/32/32542.png");
+  width: 25px;
+  height: 25px;
+}
+
+.slick-slider .slick-next:before {
+  content: url("https://cdn-icons-png.flaticon.com/24/271/271228.png");
+  width: 25px;
+  height: 25px;
+}
+
+.slick-slider .slick-next {
+  right: 10px;
+}
+
+.slick-slider .slick-arrow {
+  background-size: contain;
+  width: 25px;
+  height: 25px;
+}

@@ -1,6 +1,6 @@
 .navigation {
     display: flex;
-    width: 960px;
+    width: 1056px;
     justify-content: space-between;
     margin: auto;
 }
@@ -9,12 +9,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 960px;
+    max-width: 1056px;
     margin: auto;
     min-height: 118px;
+    padding-top: 10px;
 }
 
-.container img {
+.logo img {
     display: block;
-    width: 280px;
+    max-width: 308px;
 }

@@ -9,7 +9,6 @@ import cn from "classnames";
 
 const NavLeft = () => {
     const [category, setCategory] = useState(null);
-    const [subCategory, setSubCategory] = useState(null);
 
     const getResource = async (category, subcategory) => {
         const categories = await getApi(category);
@@ -25,7 +24,6 @@ const NavLeft = () => {
         })
 
         setCategory(categoryList);
-        console.log(categoryList);
     }
 
     useEffect( () => {
