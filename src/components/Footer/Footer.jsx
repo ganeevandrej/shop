@@ -28,7 +28,7 @@ const Footer = (props) => {
                             <div className={style.subBlock}>
                                 {value.map(item => {
                                     return (
-                                        <NavLink key={item} to={`/different/${item}`}>
+                                        <NavLink key={item} to={`/page/${item}`}>
                                             <span>{item}</span>
                                         </NavLink>
                                     );

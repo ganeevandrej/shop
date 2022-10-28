@@ -1,10 +1,10 @@
 import './HomePage.module.css';
-import Slider from "../../components/Slider/Slider";
 import style from "./HomePage.module.css";
-import Banners from "../../components/Banners/Banners";
-import HomeCategories from "../../components/HomeCategories/HomeCategories";
-import HomeDescription from "../../components/HomeDescription/HomeDescription";
-import Popular from "../../components/Popular/Popular";
+import Slider from "../../components/HomePage/Slider/Slider";
+import Banners from "../../components/HomePage/Banners/Banners";
+import HomeCategories from "../../components/HomePage/HomeCategories/HomeCategories";
+import Popular from "../../components/HomePage/Popular/Popular";
+import HomeDescription from "../../components/HomePage/HomeDescription/HomeDescription";
 
 const HomePage = (props) => {
   return (

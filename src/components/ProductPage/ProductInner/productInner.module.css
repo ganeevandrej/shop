@@ -1,0 +1,38 @@
+.wrapper {
+    justify-content: space-between;
+    display: flex;
+    width: 1056px;
+    margin: auto;
+}
+
+.wrapper img {
+    width: 420px;
+    border-radius: 5px;
+}
+
+.descriptionProduct {
+    display: flex;
+    flex-direction: column;
+    width: 595px;
+}
+
+.descriptionProduct h1{
+    text-align: center;
+    margin-top: 5px;
+}
+
+.booleanTrue {
+    color: green;
+}
+
+.booleanFalse {
+    color: red;
+}
+
+.descriptionProduct span {
+    margin: 5px 0;
+}
+
+.descriptionProduct .price {
+    margin: 35px 0;
+}

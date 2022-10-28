@@ -38,7 +38,7 @@ const routesConfig = [
         component: SubCategoriesPage
     },
     {
-        path: "/product",
+        path: "/:category/product/:id",
         exact: true,
         component: ProductPage
     },

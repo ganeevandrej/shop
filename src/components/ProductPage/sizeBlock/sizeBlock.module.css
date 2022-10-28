@@ -1,0 +1,15 @@
+.btnBlock {
+    margin: 15px 0;
+}
+
+.btnBlock button {
+    padding: 7px 10px;
+    margin-right: 10px;
+    border: 1px solid #cccccc;
+    text-align: center;
+    border-radius: 5px;
+    background-color: white;
+    height: 34px;
+    width: 35px;
+    cursor: pointer;
+}

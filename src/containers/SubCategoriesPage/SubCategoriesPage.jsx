@@ -5,7 +5,7 @@ const SubCategoriesPage = () => {
     const param = useParams();
     return (
         <>
-            <h1>{param.name}</h1>
+            <h1>{`${param.name}${param.subcategory}`}</h1>
         </>
     );
 }

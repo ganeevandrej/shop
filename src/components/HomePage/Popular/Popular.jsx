@@ -1,8 +1,8 @@
 import style from "./popular.module.css";
 import {useEffect, useState} from "react";
-import {IMG_PRODUCTS, SWAPI_POPULAR_ROOT} from "../../constants/api";
-import {getApi} from "../../utils/network";
 import {NavLink} from "react-router-dom";
+import {getApi} from "../../../utils/network";
+import {IMG_PRODUCTS, SWAPI_POPULAR_ROOT} from "../../../constants/api";
 
 const Popular = () => {
     const [popular, setPopular] = useState(null);
@@ -11,11 +11,14 @@ const Popular = () => {
 
         const popular = await getApi(url);
 
-        const popularList = popular.map( ({title, image, price}) => {
+        const popularList = popular.map( ({title, image, price, category_id, id}) => {
+
             return {
                 title,
                 image,
-                price
+                price,
+                category_id,
+                id
             }
         });
 
@@ -33,10 +36,10 @@ const Popular = () => {
             </div>
             {popular && (
                 <div className={style.blockItem}>
-                    {popular.map( ({title, image, price}, index) => {
+                    {popular.map( ({title, image, price, id }, index) => {
                         return (
                             <div key={index} className={style.item}>
-                                <NavLink to={"/"}>
+                                <NavLink to={`product/${id}`}>
                                     <img src={IMG_PRODUCTS+image} alt=""/>
                                     <span>{title}</span>
                                     <span>{price} рублей</span>

@@ -45,3 +45,9 @@ a.active span{
   width: 25px;
   height: 25px;
 }
+
+.btnActive {
+  background: #363636 !important;
+  color: #ffffff !important;
+  border-color: #363636 !important;
+}

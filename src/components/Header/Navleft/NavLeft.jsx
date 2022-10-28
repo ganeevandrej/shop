@@ -2,10 +2,10 @@ import style from "./navLeft.module.css";
 import {NavLink} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import select from "./img/select.png";
-import {getApi} from "../../utils/network";
-import {SWAPI_CATEGORY_ROOT, SWAPI_SUBCATEGORY_ROOT} from "../../constants/api";
-import HiddenBlock from "../HiddenBlock/hiddenBlock";
+import {getApi} from "../../../utils/network";
+import {SWAPI_CATEGORY_ROOT, SWAPI_SUBCATEGORY_ROOT} from "../../../constants/api";
 import cn from "classnames";
+import HiddenBlock from "./HiddenBlock/hiddenBlock";
 
 const NavLeft = () => {
     const [category, setCategory] = useState(null);
