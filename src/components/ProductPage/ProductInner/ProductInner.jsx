@@ -1,9 +1,14 @@
 import style from "./productInner.module.css";
 import {IMG_PRODUCTS} from "../../../constants/api";
-import React from "react";
+import React, {useState} from "react";
 import SizeBlock from "../sizeBlock/SizeBlock";
+import BtnCart from "../BtnCart/BtnCart";
 
-const ProductInner = ({image, title, price, articul, isBoolean}) => {
+const ProductInner = ({setIsProductCart, isProductCart, image, title, description, price, id, articul, isBoolean}) => {
+
+    const [size, setSize] = useState("S");
+    const [count, setCount] = useState(1);
+
     return (
         <div className={style.wrapper}>
             <div>
@@ -16,10 +21,20 @@ const ProductInner = ({image, title, price, articul, isBoolean}) => {
                     ? <span className={style.booleanTrue}>В наличии</span>
                     : <span className={style.booleanFalse}>Нет в налачии</span>}
                 <span className={style.price}>{price} рублей</span>
-                <SizeBlock />
-                <div>Таблица размеров</div>
-                <div>actionCart</div>
-                <div>Описание</div>
+                <SizeBlock setSize={setSize}/>
+                <div className={style.table}>
+                    <span>Таблица размеров</span>
+                </div>
+                <BtnCart price={price} title={title}
+                         articul={articul} image={image} id={id}
+                         isProductCart={isProductCart}
+                         setIsProductCart={setIsProductCart}
+                         size={size}
+                         count={count}
+                         setCount={setCount}
+
+                />
+                <div className={style.description}>{description}</div>
             </div>
         </div>
     );

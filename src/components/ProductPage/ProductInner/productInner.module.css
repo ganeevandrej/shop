@@ -12,6 +12,7 @@
 
 .descriptionProduct {
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     width: 595px;
 }
@@ -35,4 +36,19 @@
 
 .descriptionProduct .price {
     margin: 35px 0;
+}
+
+.wrapper .description {
+    margin-top: 10px;
+    text-align: justify;
+    font-size: 16px;
+}
+
+.table {
+    margin: 10px 0;
+}
+
+.table span{
+    border-bottom: 1px dashed;
+    cursor: pointer;
 }

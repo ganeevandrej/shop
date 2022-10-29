@@ -5,11 +5,16 @@ import {SWAPI_CATEGORY_ROOT, SWAPI_PRODUCT_ROOT, SWAPI_SUBCATEGORY_ROOT} from ".
 import ProductCookies from "../../components/ProductPage/ProductСookies/ProductCookies";
 import style from "./ProductPage.module.css"
 import ProductInner from "../../components/ProductPage/ProductInner/ProductInner";
+import BtnCart from "../../components/ProductPage/BtnCart/BtnCart";
+import {useSelector} from "react-redux";
 
 const ProductPage = () => {
 
     const param = useParams();
     const [product, setProduct] = useState(null);
+    const [isProductCart, setIsProductCart] = useState(null);
+
+    const setData = useSelector(state => state.CartReducer);
 
 
     const getProduct = async (categoryURL, subcategoryURL, productURL) => {
@@ -17,14 +22,16 @@ const ProductPage = () => {
         const category = await getApi(categoryURL);
         const subcategory = await getApi(subcategoryURL);
 
+        setData[product.id] ? setIsProductCart(true) : setIsProductCart(false);
+
         const categoryList = category.filter( ({id, name}) => id == product.category_id );
         product.category_id = categoryList[0].name;
 
         const subcategoryList = subcategory.filter( ({id, name}) => id == product.subcategoryId );
         product.subcategoryId = subcategoryList[0].name;
 
-        console.log(product);
         setProduct(product);
+        console.log(product);
     }
 
     useEffect(() => {
@@ -41,11 +48,15 @@ const ProductPage = () => {
                         subcategory={product.subcategoryId}
                     />
                     <ProductInner
+                        isProductCart={isProductCart}
+                        setIsProductCart={setIsProductCart}
+                        id={product.id}
                         title={product.title}
                         articul={product.articul}
                         isBoolean={product.isBoolean}
                         price={product.price}
                         image={product.image}
+                        description={product.description}
                     />
                 </div>
             )}

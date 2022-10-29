@@ -1,8 +1,24 @@
+.right {
+    display: flex;
+    align-items: center;
+}
+
 .right a{
     display: inline-block;
     padding: 10px;
+    text-decoration: none;
 }
 
 .right a img {
     width: 18px;
+}
+
+.right .cart {
+    position: relative;
+}
+
+.right .cart span{
+    position: absolute;
+    right: -15px;
+    top: 7px;
 }

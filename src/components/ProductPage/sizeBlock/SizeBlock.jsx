@@ -1,15 +1,18 @@
 import style from "./sizeBlock.module.css";
 
-const SizeBlock = () => {
+const SizeBlock = ({ setSize }) => {
+
     const handleClick = (e) => {
         const btnList = document.querySelectorAll(".btnActive");
         const btnListArr = Array.from(btnList);
 
         btnListArr.map((item) => {
-            return e.target.classList.remove("btnActive");
+
+            return item.classList.remove("btnActive");
         })
 
         e.target.classList.add('btnActive');
+        setSize(e.target.textContent);
     }
 
     return (

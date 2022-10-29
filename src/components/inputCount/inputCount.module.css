@@ -1,0 +1,45 @@
+.wrapper {
+    display: flex;
+}
+
+.wrapper input {
+    padding: 2px 1px;
+    border: 1px solid #cccccc;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 3px 0 0 3px;
+    color: black;
+}
+
+.wrapper input:focus {
+    outline: none;
+}
+
+.count div{
+    width: 21px;
+    height: 21px;
+    padding: 0;
+    text-align: center;
+    line-height: 21px;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid #cccccc;
+    border-left: none;
+    background: #ffffff;
+    color: #000000;
+    cursor: pointer;
+}
+
+.count div:first-child {
+    border-radius: 0 3px 0 0;
+}
+
+.count div:last-child {
+    border-radius: 0 0 3px 0;
+}
+
+.count div img {
+    width: 10px;
+}
