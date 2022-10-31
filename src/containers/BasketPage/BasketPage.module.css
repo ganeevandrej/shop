@@ -1,0 +1,23 @@
+.wrapper {
+    width: 1056px;
+    margin: auto;
+}
+
+.wrapper h1{
+    text-align: center;
+}
+
+.blockItem {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0 20px 0;
+}
+
+.nullItem {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    font-size: 15px;
+    padding: 0.5rem;
+    letter-spacing: .1em !important;
+    border-radius: 5px;
+}

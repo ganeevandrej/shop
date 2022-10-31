@@ -1,15 +1,27 @@
-import style from "./inputCount.module.css";
+import style from "./inputCountCart.module.css";
 import plus from "./img/1828921.png";
 import minus from "./img/32320.png";
+import {useDispatch} from "react-redux";
+import {upDateProductCart} from "../../../../store/actions";
 
-const InputCount = ( {id, count, setCount} ) => {
+const InputCountCart = ( {id, count} ) => {
+    const dispatch = useDispatch();
 
     const increment = () => {
-        setCount(++count);
+        count++;
+        dispatch(upDateProductCart({
+            id,
+            count
+        }))
     }
+
     const decrement = (e) => {
-        if(count > 1) {
-            setCount(--count);
+        if (count > 1) {
+            count--;
+            dispatch(upDateProductCart({
+                id,
+                count
+            }))
         }
     }
     return (
@@ -27,4 +39,4 @@ const InputCount = ( {id, count, setCount} ) => {
     );
 }
 
-export default InputCount;
+export default InputCountCart;

@@ -1,16 +1,18 @@
 import style from "./btnCart.module.css";
-import {setProductToCart, removeProductFromCart} from "../../../store/actions";
-import {useDispatch, useSelector} from "react-redux";
-import InputCount from "../../inputCount/InputCount";
+import {setProductToCart, removeProductFromCart} from "../../../../store/actions";
+import {useDispatch} from "react-redux";
+import InputCount from "../../../inputCount/InputCount";
+import {useState} from "react";
 
-const BtnCart = ({count, setCount, setIsProductCart, isProductCart, size, price, id, title, articul, image}) => {
+const BtnCart = ({setIsProductCart, isProductCart, size, price, id, title, articul, image}) => {
     const dispatch = useDispatch();
+
+    const [count, setCount] = useState(1);
 
     const changeCart = () => {
         if(isProductCart) {
             dispatch(removeProductFromCart(id));
-            setIsProductCart(false)
-            alert("Продукт удален из корзины");
+            setIsProductCart(false);
 
         } else {
             dispatch(setProductToCart({
@@ -24,7 +26,6 @@ const BtnCart = ({count, setCount, setIsProductCart, isProductCart, size, price,
                 }
             }));
             setIsProductCart(true);
-            alert("Продукт добавлен в корзину");
         }
     }
 

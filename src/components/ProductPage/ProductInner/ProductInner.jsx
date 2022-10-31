@@ -1,13 +1,12 @@
 import style from "./productInner.module.css";
 import {IMG_PRODUCTS} from "../../../constants/api";
 import React, {useState} from "react";
-import SizeBlock from "../sizeBlock/SizeBlock";
-import BtnCart from "../BtnCart/BtnCart";
+import SizeBlock from "./sizeBlock/SizeBlock";
+import BtnCart from "./BtnCart/BtnCart";
 
 const ProductInner = ({setIsProductCart, isProductCart, image, title, description, price, id, articul, isBoolean}) => {
 
     const [size, setSize] = useState("S");
-    const [count, setCount] = useState(1);
 
     return (
         <div className={style.wrapper}>
@@ -30,9 +29,6 @@ const ProductInner = ({setIsProductCart, isProductCart, image, title, descriptio
                          isProductCart={isProductCart}
                          setIsProductCart={setIsProductCart}
                          size={size}
-                         count={count}
-                         setCount={setCount}
-
                 />
                 <div className={style.description}>{description}</div>
             </div>

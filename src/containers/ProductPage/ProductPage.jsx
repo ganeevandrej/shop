@@ -5,7 +5,6 @@ import {SWAPI_CATEGORY_ROOT, SWAPI_PRODUCT_ROOT, SWAPI_SUBCATEGORY_ROOT} from ".
 import ProductCookies from "../../components/ProductPage/ProductСookies/ProductCookies";
 import style from "./ProductPage.module.css"
 import ProductInner from "../../components/ProductPage/ProductInner/ProductInner";
-import BtnCart from "../../components/ProductPage/BtnCart/BtnCart";
 import {useSelector} from "react-redux";
 
 const ProductPage = () => {
@@ -31,7 +30,6 @@ const ProductPage = () => {
         product.subcategoryId = subcategoryList[0].name;
 
         setProduct(product);
-        console.log(product);
     }
 
     useEffect(() => {
