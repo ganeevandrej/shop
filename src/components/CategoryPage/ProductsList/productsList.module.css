@@ -1,12 +1,12 @@
 .blockProduct {
-    width: 770px;
+    width: 700px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .itemProduct {
-    width: 374px;
+    width: 340px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,7 +21,7 @@
 }
 
 .itemProduct img {
-    width: 374px;
+    width: 340px;
     border-radius: 5px;
 }
 

@@ -1,6 +1,6 @@
 .navigation {
     display: flex;
-    width: 1056px;
+    width: 960px;
     justify-content: space-between;
     margin: auto;
 }
@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 1056px;
+    max-width: 960px;
     margin: auto;
     min-height: 118px;
     padding-top: 10px;
@@ -17,5 +17,5 @@
 
 .logo img {
     display: block;
-    max-width: 308px;
+    max-width: 280px;
 }
