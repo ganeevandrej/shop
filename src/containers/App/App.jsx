@@ -9,6 +9,7 @@ import ProductPage from "../ProductPage/ProductPage";
 import DifferentPage from "../DifferentPage/DifferentPage";
 import SearchPage from "../SearchPage/SearchPage";
 import BasketPage from "../BasketPage/BasketPage";
+import ProfilePage from "../ProfilePage/ProfilePage";
 
 const App = (props) => {
     return (
@@ -23,6 +24,7 @@ const App = (props) => {
                     <Route path="page/:name" element={<DifferentPage />} />
                     <Route path="search" element={<SearchPage />} />
                     <Route path="cart_items" element={<BasketPage />} />
+                    <Route path="client_account/orders" element={<ProfilePage />} />
                 </Routes>
                     {/*{routesConfig.map((route, index) => {*/}
                     {/*    return <Route key={index} exact={route.exact}*/}

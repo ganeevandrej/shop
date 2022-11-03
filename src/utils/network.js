@@ -11,3 +11,14 @@ export const getApi = async (url) => {
         return false;
     }
 }
+
+export const NameToId = (name) => {
+    switch (name) {
+        case "Мужчины":
+            return 1;
+        case "Женщины":
+            return 2;
+        case "Аксессуары":
+            return 3;
+    }
+}

@@ -1,0 +1,28 @@
+.blockSelect {
+    display: flex;
+    align-items: center;
+}
+
+.select {
+    line-height: 28px;
+    height: 28px;
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    border: 1px solid #cccccc;
+    padding: 0 0.5rem;
+    z-index: 1;
+    cursor: pointer;
+    letter-spacing: 1px;
+    max-width: 100%;
+    -webkit-appearance: button;
+    background-color: #fff;
+    outline: none;
+}
+
+.select option {
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+}

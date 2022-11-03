@@ -1,0 +1,22 @@
+.wrapper {
+    width: 1056px;
+    margin: auto;
+}
+
+.title h2 {
+    text-align: center;
+}
+
+.bolckCoociesAndSelect {
+    display: flex;
+    align-items: center;
+}
+
+.filterandprodicts {
+    display: flex;
+    justify-content: space-between;
+}
+
+.blockFolters {
+    width: 240px;
+}

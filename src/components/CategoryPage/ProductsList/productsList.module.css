@@ -1,0 +1,35 @@
+.blockProduct {
+    width: 770px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.itemProduct {
+    width: 374px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.itemProduct a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+.itemProduct img {
+    width: 374px;
+    border-radius: 5px;
+}
+
+.itemProduct a span {
+    font-family: Roboto, Arial, sans-serif;
+    letter-spacing: .1em;
+    line-height: 1.3;
+    font-size: 13px;
+    color: black;
+    margin-top: 10px;
+}

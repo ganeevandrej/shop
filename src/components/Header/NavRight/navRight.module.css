@@ -15,6 +15,7 @@
 
 .right .cart {
     position: relative;
+    margin-right: 15px;
 }
 
 .right .cart span{
