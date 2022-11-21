@@ -1,4 +1,4 @@
-import style from "./categoryCoocies.module.css";
+import style from "./categoryCookies.module.css";
 import {NavLink} from "react-router-dom";
 import React from "react";
 import homeIcon from "./img/720.png";

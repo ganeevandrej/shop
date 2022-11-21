@@ -15,7 +15,6 @@ const ProductPage = () => {
 
     const setData = useSelector(state => state.CartReducer);
 
-
     const getProduct = async (categoryURL, subcategoryURL, productURL) => {
         const product = await getApi(productURL);
         const category = await getApi(categoryURL);
@@ -23,10 +22,10 @@ const ProductPage = () => {
 
         setData[product.id] ? setIsProductCart(true) : setIsProductCart(false);
 
-        const categoryList = category.filter( ({id, name}) => id == product.category_id );
+        const categoryList = category.filter( ({id}) => id == product.category_id );
         product.category_id = categoryList[0].name;
 
-        const subcategoryList = subcategory.filter( ({id, name}) => id == product.subcategoryId );
+        const subcategoryList = subcategory.filter( ({id}) => id == product.subcategoryId );
         product.subcategoryId = subcategoryList[0].name;
 
         setProduct(product);

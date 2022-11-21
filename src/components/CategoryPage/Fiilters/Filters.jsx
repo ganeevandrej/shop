@@ -1,63 +1,64 @@
 import style from "./filters.module.css";
-import {NavLink, useParams} from "react-router-dom";
-import React, {useEffect, useState} from "react";
+import { NavLink } from "react-router-dom";
+import img from "./img/стрелка.svg"
+import React, {useEffect, useRef, useState} from "react";
 import {getApi} from "../../../utils/network";
-import {SWAPI_SUBCATEGORY_ROOT} from "../../../constants/api";
+import {SWAPI_CATEGORY_ROOT, SWAPI_SUBCATEGORY_ROOT} from "../../../constants/api";
 
-const Filters = () => {
-    const [subCategory, setSubCategory] = useState(null);
-    const param = useParams();
-    console.log(subCategory);
+const Filters = ( {param} ) => {
+    const [filters, setFilters] = useState(null);
 
-    const getSubcategory = async (url) => {
-        const subCategory = await getApi(url);
-        setSubCategory(subCategory);
+    const getData = async (categoryURL, subCategoryURL) => {
+        const category = await getApi(categoryURL);
+        const subCategory = await getApi(subCategoryURL);
+
+        const filtersList = category.map(( {name, id} ) => {
+            const subcategory = subCategory.filter( ({itemId}) => itemId == id )
+            return {
+                name,
+                id,
+                subcategory
+            }
+        })
+
+        setFilters(filtersList);
     }
 
     useEffect(() => {
-        getSubcategory(SWAPI_SUBCATEGORY_ROOT);
-    }, [])
+        getData(SWAPI_CATEGORY_ROOT,SWAPI_SUBCATEGORY_ROOT);
+    }, []);
+
+    const showBlock = (e) => {
+    }
 
     return (
         <div className={style.blockFolters}>
-            <h3>Каталог</h3>
-            <div>
-                <ul>
-                    <li>
-                        <NavLink><span>Мужчины</span></NavLink>
-                        <img src="" alt=""/>
-                        <ul>
-                            <li><NavLink>Майки</NavLink></li>
-                            <li><NavLink>Свитшоты</NavLink></li>
-                            <li><NavLink>Джинсы</NavLink></li>
-                            <li><NavLink>Шорты</NavLink></li>
-                            <li><NavLink>Рубашки</NavLink></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <NavLink>
-                            <span>Женщины</span>
-                        </NavLink>
-                        <img src="" alt=""/>
-                        <ul>
-                            <li><NavLink>Майки</NavLink></li>
-                            <li><NavLink>Свитшоты</NavLink></li>
-                            <li><NavLink>Джинсы</NavLink></li>
-                            <li><NavLink>Шорты</NavLink></li>
-                            <li><NavLink>Рубашки</NavLink></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <NavLink>
-                            <span>Аксессуары</span>
-                        </NavLink>
-                        <img src="" alt=""/>
-                        <ul>
-                            <li><NavLink>Шляпы</NavLink></li>
-                            <li><NavLink>Чехлы</NavLink></li>
-                            <li><NavLink>Ремни</NavLink></li>
-                        </ul>
-                    </li>
+            <h3 className={style.title}>Каталог</h3>
+            <div className={style.wrapperFilters}>
+                <ul className={style.filtersList}>
+                    {filters && (
+                        filters.map( ({name, subcategory}, index ) => {
+                            return (
+                                <li className={style.filtersItem} key={index}>
+                                    <NavLink to={`/category/${name}`} >
+                                        <span>{name}</span>
+                                    </NavLink>
+                                    <img className={style.img} onClick={showBlock} src={img} alt=""/>
+                                    <ul className={name == param.name ? "activeBlock" : style.subcategory}>
+                                        {subcategory.map( (item) => {
+                                            return (
+                                                <li key={item.id}>
+                                                    <NavLink to={`/category/${name}/${item.name}`}>
+                                                        {item.name}
+                                                    </NavLink>
+                                                </li>
+                                            );
+                                        })}
+                                    </ul>
+                                </li>
+                            );
+                        })
+                    )}
                 </ul>
             </div>
         </div>

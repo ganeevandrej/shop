@@ -1,0 +1,49 @@
+.blockFolters {
+    width: 240px;
+}
+
+.title {
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.img {
+    transform: rotate(90deg);
+    display: block;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.filtersList, .subcategory {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.filtersItem {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 8px 0;
+}
+
+.filtersItem a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    width: 200px;
+}
+
+.subcategory {
+    display: none;
+    width: 100%;
+    padding-left: 10px;
+    margin-top: 8px;
+}
+
+.subcategory li {
+    padding: 3px 0;
+}
