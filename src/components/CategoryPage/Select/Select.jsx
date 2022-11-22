@@ -11,7 +11,7 @@ const Select = ( {sortProduct} ) => {
     return (
         <div className={style.blockSelect}>
             <span>Сортировать</span>
-            <select className={style.select}  onChange={changeSort} name="Сортировка" id="">
+            <select className={style.select}  onChange={changeSort} name="Сортировка">
                 <option value="products/sort/id">По умолчанию</option>
                 <option value="products/sort/price">По возрастанию цены</option>
                 <option value="products/sort/down/price">По убыванию цены</option>

@@ -26,7 +26,7 @@ const CategoriesPage = () => {
 
     useEffect(() => {
         getProducts(SWAPI_PRODUCTS_ROOT);
-    }, [param]);
+    }, [param.name]);
 
     return (
         <div className={style.wrapper}>

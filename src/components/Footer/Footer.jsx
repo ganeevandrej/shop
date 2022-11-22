@@ -10,11 +10,11 @@ const Footer = (props) => {
     const wordList = [
         {
             title: "покупателям",
-            value: ["доставка", "оплата", "магазины"]
+            value: ["оплата", "магазины"]
         },
         {
             title: "информация",
-            value: ["о нас", "блог"]
+            value: ["о нас"]
         }]
     const [word, setWord] = useState(wordList);
 

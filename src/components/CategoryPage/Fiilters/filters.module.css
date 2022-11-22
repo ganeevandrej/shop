@@ -12,7 +12,6 @@
 }
 
 .img {
-    transform: rotate(90deg);
     display: block;
     margin-left: 10px;
     cursor: pointer;
