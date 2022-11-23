@@ -62,7 +62,7 @@ const Filters = ( {param} ) => {
                                             return (
                                                 <li key={item.id}>
                                                     <NavLink to={`/category/${name}/${item.name}`}>
-                                                        {item.name}
+                                                        <span>{item.name}</span>
                                                     </NavLink>
                                                 </li>
                                             );

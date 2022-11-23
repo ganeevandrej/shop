@@ -59,3 +59,7 @@ a.active span{
   margin-top: 8px;
   list-style-type: none;
 }
+
+body a:hover {
+  color: #929292;
+}

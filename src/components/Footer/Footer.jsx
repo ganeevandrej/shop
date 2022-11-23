@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import style from"./footer.module.css";
 import {NavLink} from "react-router-dom";
 import instagram from "./img/instagram.png";
@@ -16,12 +16,16 @@ const Footer = (props) => {
             title: "информация",
             value: ["о нас"]
         }]
-    const [word, setWord] = useState(wordList);
+    const [word, setWord] = useState(null);
+
+    useEffect(() => {
+        setWord(wordList);
+    }, []);
 
     return (
         <div className={style.footer}>
             <div className={style.wrapper}>
-                {word.map(({title, value}) => {
+                {word && word.map(({title, value}) => {
                     return (
                         <div key={title} className={style.item}>
                             <h2>{title}</h2>

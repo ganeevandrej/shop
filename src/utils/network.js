@@ -25,24 +25,49 @@ export const NameToId = (name) => {
     }
 }
 
-export const NameToIdSub = (name) => {
-    switch (name) {
-        case "Майки":
-            return 1;
-        case "Свитшоты":
-            return 2;
-        case "Джинсы":
-            return 3;
-        case "Шорты":
-            return 4;
-        case "Рубашки":
-            return 3;
-        case "Шляпы":
-            return 1;
-        case "Чехлы":
-            return 2;
-        case "Ремни":
-            return 3;
+export const NameToIdSub = (category, subCategory) => {
+    switch (category) {
+        case "Мужчины":
+            switch (subCategory) {
+                case "Майки":
+                    return 3;
+                case "Джинсы":
+                    return 4;
+                case "Шорты":
+                    return 11;
+                case "Свитшоты":
+                    return 12;
+                case "Рубашки":
+                    return 13;
+                default:
+                    return false;
+            }
+        case "Женщины":
+            switch (subCategory) {
+                case "Майки":
+                    return 1;
+                case "Джинсы":
+                    return 10;
+                case "Шорты":
+                    return 2;
+                case "Свитшоты":
+                    return 8;
+                case "Платья":
+                    return 9;
+                default:
+                    return false;
+            }
+        case "Аксессуары":
+            switch (subCategory) {
+                case "Шляпы":
+                    return 5;
+                case "Ремни":
+                    return 7;
+                case "Чехлы":
+                    return 6;
+                default:
+                    return false;
+            }
         default:
             return false;
     }

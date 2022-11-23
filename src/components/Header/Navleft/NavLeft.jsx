@@ -15,7 +15,7 @@ const NavLeft = () => {
         const subcategories = await getApi(subcategory);
 
         const categoryList = categories.map(( {name, id} ) => {
-            const subcategory = subcategories.filter( ({itemId}) => itemId == id )
+            const subcategory = subcategories.filter( ({itemId}) => itemId === id )
             return {
                 name,
                 id,

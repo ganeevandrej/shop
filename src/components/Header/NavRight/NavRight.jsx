@@ -8,21 +8,22 @@ import {useSelector} from "react-redux";
 
 const NavRight = () => {
     const [count, setCount] = useState(null);
-    const [navItem, setNavItem] = useState([
-        {img: search, path: "/search"},
-        {img: profile, path: "/client_account/orders"},
-    ]);
+    const [navItem, setNavItem] = useState(null);
 
     const countItem = useSelector(state => state.CartReducer)
 
     useEffect(() => {
         const length = Object.keys(countItem).length;
         setCount(length);
-    })
+        setNavItem([
+            {img: search, path: "/search"},
+            {img: profile, path: "/client_account/orders"}
+        ])
+    }, [countItem])
 
     return (
         <div className={style.right}>
-            {navItem.map((item, index) => {
+            {navItem && navItem.map((item, index) => {
                 return (
                     <NavLink key={index} to={item.path}>
                         <img src={item.img} alt=""/>

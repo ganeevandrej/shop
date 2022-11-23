@@ -20,13 +20,13 @@ const CategoriesPage = () => {
 
     const sortProduct = async (url) => {
         const sort = await getApi(url);
-        const products = sort.filter(({category_id}) => id == category_id);
+        const products = sort.filter(({category_id}) => id === category_id);
         setProducts(products);
     }
 
     useEffect(() => {
         getProducts(SWAPI_PRODUCTS_ROOT);
-    }, [param.name]);
+    }, [param]);
 
     return (
         <div className={style.wrapper}>

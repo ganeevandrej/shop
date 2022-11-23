@@ -1,6 +1,6 @@
 import style from "./basketProduct.module.css";
 import {IMG_PRODUCTS} from "../../../constants/api";
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {NavLink} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {removeProductFromCart} from "../../../store/actions";

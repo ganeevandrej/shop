@@ -12,11 +12,11 @@ const SubCategoriesPage = () => {
     const [products, setProducts] = useState(null);
     const param = useParams();
     const idCategory = NameToId(param.name);
-    const idSubCategory = NameToIdSub(param.subcategory);
-    console.log(idSubCategory);
+    const idSubCategory = NameToIdSub(param.name, param.subcategory);
 
     const getProduct = async (product) => {
         const productCategory = await getApi(product + idCategory);
+        console.log(productCategory);
         const productSubCategory = productCategory.filter(({subcategoryId}) => idSubCategory === subcategoryId);
 
         setProducts(productSubCategory);
@@ -24,13 +24,14 @@ const SubCategoriesPage = () => {
 
     const sortProduct = async (url) => {
         const sort = await getApi(url);
-        const products = sort.filter(({category_id}) => idSubCategory === category_id);
+        const products = sort.filter(({category_id, subcategoryId}) =>
+            idCategory === category_id && idSubCategory === subcategoryId);
         setProducts(products);
     }
 
     useEffect(() => {
         getProduct(SWAPI_PRODUCTS_ROOT);
-    }, [param])
+    }, [param]);
 
     return (
         <div className={style.wrapper}>

@@ -10,6 +10,8 @@ import DifferentPage from "../DifferentPage/DifferentPage";
 import SearchPage from "../SearchPage/SearchPage";
 import BasketPage from "../BasketPage/BasketPage";
 import ProfilePage from "../ProfilePage/ProfilePage";
+import LoginPage from "../LoginPage/LoginPage";
+import AuthPage from "../AuthPage/AuthPage";
 
 const App = (props) => {
     return (
@@ -24,7 +26,8 @@ const App = (props) => {
                     <Route path="page/:name" element={<DifferentPage />} />
                     <Route path="search" element={<SearchPage />} />
                     <Route path="cart_items" element={<BasketPage />} />
-                    <Route path="client_account/orders" element={<ProfilePage />} />
+                    <Route path="client_account/orders" element={<LoginPage />} />
+                    <Route path="client_account/users/new" element={<AuthPage />} />
                 </Routes>
                     {/*{routesConfig.map((route, index) => {*/}
                     {/*    return <Route key={index} exact={route.exact}*/}

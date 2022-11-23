@@ -2,7 +2,7 @@ import style from  "./AboutMe.module.css";
 
 const AboutMe = () => {
     return (
-        <div>
+        <div className={style.wrapper}>
             <h3>БОЛЬШОЙ ВЫБОР ТОВАРОВ</h3>
             <p>Style Shop - это гардероб, в котором собрано более 2 000 000 модных товаров: женская и мужская одежда,
                 обувь и аксессуары. Вы можете заглянуть в него в любое время и заказать с

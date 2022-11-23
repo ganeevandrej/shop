@@ -22,10 +22,10 @@ const ProductPage = () => {
 
         setData[product.id] ? setIsProductCart(true) : setIsProductCart(false);
 
-        const categoryList = category.filter( ({id}) => id == product.category_id );
+        const categoryList = category.filter( ({id}) => id === product.category_id );
         product.category_id = categoryList[0].name;
 
-        const subcategoryList = subcategory.filter( ({id}) => id == product.subcategoryId );
+        const subcategoryList = subcategory.filter( ({id}) => id === product.subcategoryId );
         product.subcategoryId = subcategoryList[0].name;
 
         setProduct(product);
@@ -33,7 +33,7 @@ const ProductPage = () => {
 
     useEffect(() => {
         getProduct(SWAPI_CATEGORY_ROOT, SWAPI_SUBCATEGORY_ROOT,SWAPI_PRODUCT_ROOT+param.id);
-    }, [])
+    }, [param])
 
     return (
         <>
