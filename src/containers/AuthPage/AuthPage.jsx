@@ -2,26 +2,47 @@ import React from "react";
 import style from "./AuthPage.module.css";
 
 const AuthPage = () => {
+
+
+    const action = (e) => {
+        e.preventDefault();
+        fetch("https://smthqz.pythonanywhere.com/api/auth/users/",
+            {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: "POST",
+                body: JSON.stringify({
+                    username: "Андрей",
+                    password: "123ganeevEbatTip",
+                    email: "ganee@psdc.tip"
+                })
+            }).then((res) => {
+            console.log(res);
+        })
+    }
+
     return (
         <div className={style.wrapper}>
             <h2>Регистрация</h2>
             <div className={style.authBlock}>
-                <form action="">
+                <form onSubmit={action}>
                     <div>
                         <span>контактное лицо (фио):</span>
-                        <input type="text"/>
+                        <input name="name" type="text"/>
                     </div>
                     <div>
                         <span>контактный телефон:</span>
-                        <input type="text"/>
+                        <input name="phone" type="text"/>
                     </div>
                     <div>
                         <span>email:</span>
-                        <input type="text"/>
+                        <input name="email" type="text"/>
                     </div>
                     <div>
                         <span>пароль:</span>
-                        <input type="password"/>
+                        <input name="password" type="password"/>
                     </div>
                     <div>
                         <span>повторите пароль:</span>
