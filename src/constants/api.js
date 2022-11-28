@@ -1,4 +1,4 @@
-export const SWAPI_ROOT = "https://smthqz.pythonanywhere.com/api/";
+export const SWAPI_ROOT = "https://aaaa228.pythonanywhere.com/api/";
 const SWAPI_CATEGORY = "category/";
 const SUBCATEGORY = "subcategory/all/";
 const PRODUCT_POPULAR = "products/popular/";

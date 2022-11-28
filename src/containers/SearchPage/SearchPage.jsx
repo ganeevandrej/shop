@@ -13,8 +13,11 @@ const SearchPage = () => {
     }
 
     const searchClick = async () => {
-        const getProduct = await getApi(SWAPI_SEARCH_ROOT+string);
-        setProducts(getProduct);
+        if(string) {
+            const getProduct = await getApi(SWAPI_SEARCH_ROOT+string);
+            setProducts(getProduct);
+        }
+        return;
     }
 
     return (

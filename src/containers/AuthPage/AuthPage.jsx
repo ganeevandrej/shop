@@ -6,7 +6,10 @@ const AuthPage = () => {
 
     const action = (e) => {
         e.preventDefault();
-        fetch("https://smthqz.pythonanywhere.com/api/auth/users/",
+        /*const users = fetch("https://aaaa228.pythonanywhere.com/api/auth/users/")
+            .then((res) => res.json())
+            .then((res) => console.log(res));*/
+        fetch("https://aaaa228.pythonanywhere.com/api/auth/users/",
             {
                 headers: {
                     'Accept': 'application/json',
@@ -18,9 +21,8 @@ const AuthPage = () => {
                     password: "123ganeevEbatTip",
                     email: "ganee@psdc.tip"
                 })
-            }).then((res) => {
-            console.log(res);
-        })
+            }).then((res) => res.json())
+            .then( (res) => console.log(res));
     }
 
     return (
@@ -29,12 +31,8 @@ const AuthPage = () => {
             <div className={style.authBlock}>
                 <form onSubmit={action}>
                     <div>
-                        <span>контактное лицо (фио):</span>
+                        <span>логин:</span>
                         <input name="name" type="text"/>
-                    </div>
-                    <div>
-                        <span>контактный телефон:</span>
-                        <input name="phone" type="text"/>
                     </div>
                     <div>
                         <span>email:</span>

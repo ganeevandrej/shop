@@ -8,7 +8,7 @@ const ProductList = ({products}) => {
     return (
         <div className={style.wrapper}>
             {products.map( (item, index) => {
-                let newImg = item.image.replace("https://smthqz.pythonanywhere.com", "");
+                let newImg = item.image.replace("https://aaaa228.pythonanywhere.com", "");
                 return(
                     <div key={index} className={style.itemProduct}>
                         <NavLink to={`/product/${item.id}`}>
