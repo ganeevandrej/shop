@@ -14,6 +14,7 @@ import LoginPage from "../LoginPage/LoginPage";
 import AuthPage from "../AuthPage/AuthPage";
 
 const App = (props) => {
+
     return (
         <BrowserRouter>
             <div className={style.wrapper}>

@@ -1,28 +1,32 @@
-import React from "react";
+import React, {useState} from "react";
 import style from "./AuthPage.module.css";
+import {postApi} from "../../utils/network";
+import {SWAPI_AUTH_ROOT} from "../../constants/api";
 
 const AuthPage = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [login, setLogin] = useState("");
 
+    const changeInput = (e) => {
+        const value = e.target.value;
+        if (e.target.type === "password") {
+            setPassword(value);
+        } else {
+            e.target.name === "name" ? setLogin(value) : setEmail(value);
+        }
+    }
 
-    const action = (e) => {
+    const action = async (e) => {
         e.preventDefault();
-        /*const users = fetch("https://aaaa228.pythonanywhere.com/api/auth/users/")
-            .then((res) => res.json())
-            .then((res) => console.log(res));*/
-        fetch("https://aaaa228.pythonanywhere.com/api/auth/users/",
+
+        const res = await postApi( SWAPI_AUTH_ROOT,
             {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                method: "POST",
-                body: JSON.stringify({
-                    username: "Андрей",
-                    password: "123ganeevEbatTip",
-                    email: "ganee@psdc.tip"
-                })
-            }).then((res) => res.json())
-            .then( (res) => console.log(res));
+                username: "Андрей",
+                password: "123ganeevEbatTip",
+                email: "ganee@psdc.tip"
+            });
+        console.log(res);
     }
 
     return (
@@ -32,15 +36,15 @@ const AuthPage = () => {
                 <form onSubmit={action}>
                     <div>
                         <span>логин:</span>
-                        <input name="name" type="text"/>
+                        <input name="name" onChange={changeInput} type="text" value={login}/>
                     </div>
                     <div>
                         <span>email:</span>
-                        <input name="email" type="text"/>
+                        <input name="email" onChange={changeInput} type="text" value={email}/>
                     </div>
                     <div>
                         <span>пароль:</span>
-                        <input name="password" type="password"/>
+                        <input name="password" onChange={changeInput} type="password" value={password}/>
                     </div>
                     <div>
                         <span>повторите пароль:</span>

@@ -17,8 +17,8 @@ const CartReducer = (state= initialState, action) => {
         case UPDATE_PRODUCT_CART:
             const stateNew = {...state};
             if (action.payLoad.id in stateNew) {
-            stateNew[action.payLoad.id].count = action.payLoad.count;
-        };
+                stateNew[action.payLoad.id].count = action.payLoad.count;
+            }
             /*const arrState = Object.entries(stateNew);
             arrState.map((item) => {
                 if(item[0] == action.payLoad.id) {

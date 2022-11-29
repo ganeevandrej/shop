@@ -15,7 +15,7 @@ const InputCountCart = ( {id, count} ) => {
         }))
     }
 
-    const decrement = (e) => {
+    const decrement = () => {
         if (count > 1) {
             count--;
             dispatch(upDateProductCart({
@@ -24,6 +24,7 @@ const InputCountCart = ( {id, count} ) => {
             }))
         }
     }
+
     return (
         <div className={style.wrapper}>
             <input id={id} type="text" readOnly value={count} />

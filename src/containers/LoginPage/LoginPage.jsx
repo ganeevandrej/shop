@@ -1,24 +1,27 @@
-import React from "react";
+import React, {useState} from "react";
 import {NavLink} from "react-router-dom";
 import style from "./LoginPage.module.css";
+import {postApi} from "../../utils/network";
+import {SWAPI_LOGIN_ROOT} from "../../constants/api";
 
 const LoginPage = () => {
+    const [login,setLogin] = useState("");
+    const [password,setPassword] = useState("");
 
-    const action = (e) => {
+    const changeInput = (e) => {
+        const value = e.target.value;
+        e.target.type === "text" ? setLogin(value) : setPassword(value);
+    }
+
+    const action = async (e) => {
         e.preventDefault();
-        fetch("https://aaaa228.pythonanywhere.com/api/auth/token/login/",
+
+        const res = await postApi(SWAPI_LOGIN_ROOT,
             {
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                method: "POST",
-                body: JSON.stringify({
-                    username: "anvar",
-                    password: "424692112qwwq"
-                })
-            }).then((res) => res.json())
-            .then( (res) => console.log(res));
+                username: "Андрей",
+                password: "123ganeevEbatTip"
+            });
+        console.log(res);
     }
 
     return (
@@ -27,12 +30,12 @@ const LoginPage = () => {
             <div className={style.loginBlock}>
                 <form onSubmit={action}>
                     <div>
-                        <span>телефон или email:</span>
-                        <input type="text"/>
+                        <span>телефон или login:</span>
+                        <input onChange={changeInput} type="text" value={login} />
                     </div>
                     <div>
                         <span>пароль:</span>
-                        <input type="password"/>
+                        <input onChange={changeInput} type="password" value={password} />
                     </div>
                     <button>Войти</button>
                 </form>
