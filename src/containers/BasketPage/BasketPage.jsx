@@ -3,11 +3,18 @@ import {useSelector} from "react-redux";
 import style from "./BasketPage.module.css";
 import BasketCookies from "../../components/BasketPage/BasketCookies/BasketCookies";
 import BasketProduct from "../../components/BasketPage/BasketProduct/BasketProduct";
+import {NavLink} from "react-router-dom";
 
 const BasketPage = () => {
     const [product, setProduct] = useState([]);
     const [priceTotal, setPriceTotal] = useState([]);
     const storeDate = useSelector(state => state.CartReducer);
+
+    const handleClick = (e) => {
+        alert("Ваша корзина пуста");
+        return product.length || e.preventDefault();
+
+    }
 
     useEffect(() => {
         const arr = Object.entries(storeDate);
@@ -46,7 +53,10 @@ const BasketPage = () => {
                         : <div className={style.nullItem}>В вашей корзине нет товаров</div>
                 }
             </div>
-            <div>Итого: {priceTotal} руб</div>
+            <div className={style.newOrder}>
+                <div>Итого: {product.length ? priceTotal : "0"} руб</div>
+                <NavLink onClick={handleClick} to="/new_order">Оформить заказ</NavLink>
+            </div>
         </div>
     );
 }

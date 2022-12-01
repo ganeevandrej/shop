@@ -1,5 +1,5 @@
 export const getLocalStorage = (key) => {
-    const data = sessionStorage.getItem(key);
+    const data = localStorage.getItem(key);
 
     if(data !== null) {
         return JSON.parse(data);
@@ -9,5 +9,5 @@ export const getLocalStorage = (key) => {
 }
 
 export const setLocalStorage = (key, data) => {
-    sessionStorage.setItem(key, JSON.stringify(data));
+    localStorage.setItem(key, JSON.stringify(data));
 }

@@ -1,4 +1,4 @@
-import {omit} from "lodash";
+import { omit } from "lodash";
 import {ADD_PRODUCT_TO_CART, REMOVE_PRODUCT_FROM_CART, UPDATE_PRODUCT_CART} from "../constans/actionType";
 import {getLocalStorage} from "../../utils/LocalStorage";
 

@@ -2,31 +2,51 @@ import React, {useState} from "react";
 import style from "./AuthPage.module.css";
 import {postApi} from "../../utils/network";
 import {SWAPI_AUTH_ROOT} from "../../constants/api";
+import {useDispatch} from "react-redux";
+import {setUser} from "../../store/actions";
+import {redirect, useNavigate} from "react-router-dom";
 
 const AuthPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [login, setLogin] = useState("");
+    const [passwordLast, setPasswordLast] = useState("");
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const changeInput = (e) => {
         const value = e.target.value;
-        if (e.target.type === "password") {
-            setPassword(value);
-        } else {
-            e.target.name === "name" ? setLogin(value) : setEmail(value);
+        switch (e.target.name) {
+            case "login":
+                setLogin(value);
+                break;
+            case "email":
+                setEmail(value);
+                break;
+            case "password":
+                setPassword(value);
+                break;
+            case "passwordLast":
+                setPasswordLast(value);
+                break;
+            default:
+                return false;
         }
     }
 
     const action = async (e) => {
         e.preventDefault();
 
-        const res = await postApi( SWAPI_AUTH_ROOT,
-            {
-                username: "Андрей",
-                password: "123ganeevEbatTip",
-                email: "ganee@psdc.tip"
-            });
-        console.log(res);
+        if (password === passwordLast) {
+            const res = await postApi( SWAPI_AUTH_ROOT,
+                {
+                    username: login,
+                    password: password,
+                    email: email
+                });
+            dispatch(setUser(res.token));
+            return navigate("/");
+        }
     }
 
     return (
@@ -36,7 +56,7 @@ const AuthPage = () => {
                 <form onSubmit={action}>
                     <div>
                         <span>логин:</span>
-                        <input name="name" onChange={changeInput} type="text" value={login}/>
+                        <input name="login" onChange={changeInput} type="text" value={login}/>
                     </div>
                     <div>
                         <span>email:</span>
@@ -48,7 +68,7 @@ const AuthPage = () => {
                     </div>
                     <div>
                         <span>повторите пароль:</span>
-                        <input type="password"/>
+                        <input name="passwordLast" onChange={changeInput} type="password" value={passwordLast}/>
                     </div>
                     <button>Зарегистрироваться</button>
                 </form>

@@ -1,6 +1,6 @@
 import {
-    ADD_PRODUCT_TO_CART,
-    REMOVE_PRODUCT_FROM_CART,
+    ADD_PRODUCT_TO_CART, ADD_USER,
+    REMOVE_PRODUCT_FROM_CART, REMOVE_USER,
     UPDATE_PRODUCT_CART
 } from "../constans/actionType";
 
@@ -8,6 +8,20 @@ export const setProductToCart = product => {
     return {
         type: ADD_PRODUCT_TO_CART,
         payLoad: product
+    };
+}
+
+export const setUser = token => {
+    return {
+        type: ADD_USER,
+        payLoad: token
+    };
+}
+
+export const removeUser = token => {
+    return {
+        type: REMOVE_USER,
+        payLoad: token
     };
 }
 

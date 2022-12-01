@@ -1,12 +1,16 @@
 import React, {useState} from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink, redirect, useNavigate} from "react-router-dom";
 import style from "./LoginPage.module.css";
 import {postApi} from "../../utils/network";
 import {SWAPI_LOGIN_ROOT} from "../../constants/api";
+import {setUser} from "../../store/actions";
+import {useDispatch} from "react-redux";
 
 const LoginPage = () => {
     const [login,setLogin] = useState("");
     const [password,setPassword] = useState("");
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const changeInput = (e) => {
         const value = e.target.value;
@@ -18,10 +22,11 @@ const LoginPage = () => {
 
         const res = await postApi(SWAPI_LOGIN_ROOT,
             {
-                username: "Андрей",
-                password: "123ganeevEbatTip"
+                username: login,
+                password: password
             });
-        console.log(res);
+        dispatch(setUser(res.token));
+        return navigate("/");
     }
 
     return (

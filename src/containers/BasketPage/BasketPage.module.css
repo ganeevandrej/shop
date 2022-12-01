@@ -21,3 +21,24 @@
     letter-spacing: .1em !important;
     border-radius: 5px;
 }
+
+.newOrder {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.newOrder a {
+    display: inline-block;
+    background-color: #363636;
+    color: #ffffff;
+    line-height: 36px;
+    padding: 0 10px;
+    vertical-align: top;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}

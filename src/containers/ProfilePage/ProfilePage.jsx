@@ -1,19 +1,25 @@
 import React from "react";
 import {NavLink} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {removeUser} from "../../store/actions";
 
 const ProfilePage = () => {
+    const dispatch = useDispatch();
+    const token = useSelector(state => state.UserReducer);
+    console.log(token);
 
     const exit = async (e) => {
         e.preventDefault();
         const response = await fetch("https://kkkkss.pythonanywhere.com/api/logout/",{
             headers: {
-                "Authorization": " Token d56e7341c955546100bcbc235f68a7785a6c0725d562ca7b9357cdfa46b4b418",
+                "Authorization": `Token ${token.token}`,
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             method: "POST",
             body: {}
         });
+        dispatch(removeUser("token"));
     }
 
     return (
