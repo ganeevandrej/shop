@@ -1,0 +1,19 @@
+.blockInput {
+    width: 100%;
+    padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.wrapper .blockInput input {
+    cursor: pointer;
+    width: auto;
+}
+
+.blockInput label {
+    font-weight: 400;
+    text-transform: lowercase;
+    font-size: 15px;
+}

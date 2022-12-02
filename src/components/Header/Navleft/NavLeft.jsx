@@ -34,7 +34,7 @@ const NavLeft = () => {
         <>
             {category && (
                 <ul className={style.left}>
-                    {category.map(({id, name, subcategory}, index) => {
+                    {category.map(({id, name, subcategory}) => {
                         return (
                             <li key={id} className={cn(style.leftBlock, 'refHidden')}>
                                 <NavLink className={style.ref} key={id} to={`/category/${name}`}>

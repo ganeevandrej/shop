@@ -5,7 +5,7 @@ import {NavLink} from "react-router-dom";
 import NavLeft from "./Navleft/NavLeft";
 import NavRight from "./NavRight/NavRight";
 
-const Header = (props) => {
+const Header = () => {
 
     return (
         <>

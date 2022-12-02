@@ -1,0 +1,44 @@
+.wrapper button {
+    background: #363636;
+    font-size: 14px;
+    border-radius: 3px;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    padding: 0.7em 3em;
+    line-height: 30px;
+    margin: 0 auto;
+    transition: .2s all;
+    color: #ffffff;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+}
+
+.blockInput label {
+    font-weight: 400;
+    text-transform: lowercase;
+    font-size: 14px;
+    color: #929292;
+}
+
+.wrapper .blockInput input {
+    cursor: pointer;
+    width: auto;
+}
+
+.blockInput {
+    width: 100%;
+    padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.blockInput .label {
+    display: inline-block;
+    margin-right: auto;
+    margin-left: 25px;
+    color: black;
+    font-size: 15px;
+}

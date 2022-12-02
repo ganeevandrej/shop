@@ -17,7 +17,7 @@ const SearchPage = () => {
             const getProduct = await getApi(SWAPI_SEARCH_ROOT+string);
             setProducts(getProduct);
         }
-        return;
+        return false;
     }
 
     return (

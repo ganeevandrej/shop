@@ -1,0 +1,49 @@
+.wrapper {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.wrapper h2, .blockOrder h4 {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.blockInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.blockOrder {
+    width: 50%;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.blockProducts {
+    width: 37%;
+    border: 1px solid #ccc;
+    padding: 1em 1em 0.5em;
+    margin-bottom: auto;
+}
+
+.blockOrder h4 {
+    margin: 20px 0;
+}
+
+.blockOrder textarea {
+    height: 40px;
+}
+
+.blockOrder input, .blockOrder textarea {
+    line-height: 28px;
+    padding: 0 0.5em;
+    color: #000000;
+    background: #ffffff;
+    width: 240px;
+    border-radius: 3px;
+    border: 1px solid #cccccc;
+}
+
+.blockOrder input:focus, .blockOrder textarea:focus {
+    outline: none;
+}

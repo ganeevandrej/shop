@@ -15,8 +15,7 @@ import {useSelector} from "react-redux";
 import NewOrderPage from "../NewOrderPage/newOrderPage";
 
 const App = () => {
-    const auth = useSelector(state => state.UserReducer);
-    console.log(auth);
+    const user = useSelector(state => state.UserReducer);
 
     return (
         <BrowserRouter>
@@ -30,7 +29,7 @@ const App = () => {
                     <Route path="page/:name" element={<DifferentPage />} />
                     <Route path="search" element={<SearchPage />} />
                     <Route path="cart_items" element={<BasketPage />} />
-                    <Route path="client_account/orders"  element={auth.token ? <ProfilePage /> : <LoginPage />} />
+                    <Route path="client_account/orders"  element={user.user ? <ProfilePage /> : <LoginPage />} />
                     <Route path="client_account/users/new" element={<AuthPage />} />
                     <Route path="/new_order" element={<NewOrderPage />} />
                 </Routes>

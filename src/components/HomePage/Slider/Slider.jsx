@@ -7,7 +7,7 @@ import image3 from "./img/main_image_3-loaded.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const Slider = (props) => {
+const Slider = () => {
     const arrImg = [image1, image2, image3];
 
     const settings = {

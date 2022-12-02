@@ -11,9 +11,10 @@ const BasketPage = () => {
     const storeDate = useSelector(state => state.CartReducer);
 
     const handleClick = (e) => {
-        alert("Ваша корзина пуста");
-        return product.length || e.preventDefault();
-
+        if (!product.length) {
+            e.preventDefault();
+            alert("Ваша корзина пуста");
+        }
     }
 
     useEffect(() => {
@@ -33,7 +34,8 @@ const BasketPage = () => {
                 };
             });
 
-            const priceTot = resProduct.reduce((res, {generalPrice}) => res += generalPrice, 0);
+            const priceTot = resProduct.reduce((result, {generalPrice}) => {
+                return result + generalPrice}, 0);
 
             setPriceTotal(priceTot);
             return setProduct(resProduct);

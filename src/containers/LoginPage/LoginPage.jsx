@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {NavLink, redirect, useNavigate} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import style from "./LoginPage.module.css";
 import {postApi} from "../../utils/network";
 import {SWAPI_LOGIN_ROOT} from "../../constants/api";
@@ -25,14 +25,20 @@ const LoginPage = () => {
                 username: login,
                 password: password
             });
-        dispatch(setUser(res.token));
+        console.log(res);
+        dispatch(setUser({
+            id: res.user.id,
+            name: res.user.username,
+            email: res.user.email,
+            token: res.token
+        }));
         return navigate("/");
     }
 
     return (
         <div className={style.wrapper}>
             <h3>ВХОД В КАБИНЕТ ПОКУПАТЕЛЯ</h3>
-            <div className={style.loginBlock}>
+            <div>
                 <form onSubmit={action}>
                     <div>
                         <span>телефон или login:</span>

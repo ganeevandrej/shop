@@ -1,0 +1,29 @@
+h4 {
+    text-align: center;
+}
+
+.blockProducts {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    padding: 1em 0 1em 0;
+
+}
+
+.img img{
+    display: inline-block;
+    width: 48px;
+    vertical-align: middle
+}
+
+.price {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.delivery, .priceTotal {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}

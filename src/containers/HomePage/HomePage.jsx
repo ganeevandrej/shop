@@ -6,7 +6,7 @@ import HomeCategories from "../../components/HomePage/HomeCategories/HomeCategor
 import Popular from "../../components/HomePage/Popular/Popular";
 import HomeDescription from "../../components/HomePage/HomeDescription/HomeDescription";
 
-const HomePage = (props) => {
+const HomePage = () => {
   return (
       <div className={style.wrapper}>
           <Slider />

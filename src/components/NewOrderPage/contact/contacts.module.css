@@ -1,0 +1,23 @@
+.blockInput {
+    width: 100%;
+    padding-right: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.blockInput label {
+    font-weight: 400;
+    text-transform: lowercase;
+    font-size: 14px;
+    color: #929292;
+}
+
+.blockInput label:after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background-image: url("./img/icon.svg");
+}

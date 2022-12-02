@@ -5,20 +5,19 @@ import instagram from "./img/instagram.png";
 import vk from "./img/vk.png";
 import facebook from "./img/facebook.png";
 
-const Footer = (props) => {
-
-    const wordList = [
-        {
-            title: "покупателям",
-            value: ["оплата", "магазины"]
-        },
-        {
-            title: "информация",
-            value: ["о нас"]
-        }]
+const Footer = () => {
     const [word, setWord] = useState(null);
 
     useEffect(() => {
+        const wordList = [
+            {
+                title: "покупателям",
+                value: ["оплата", "магазины"]
+            },
+            {
+                title: "информация",
+                value: ["о нас"]
+            }]
         setWord(wordList);
     }, []);
 

@@ -4,7 +4,7 @@ import img2 from "./img/image4xxl.jpg";
 import img3 from "./img/image1xxl__5_.jpg";
 import {NavLink} from "react-router-dom";
 
-let HomeCategories = (props) => {
+let HomeCategories = () => {
     const arrItem = [
         {
             img: img1,

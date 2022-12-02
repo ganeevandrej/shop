@@ -6,7 +6,7 @@ const store = createStore(rootReducers);
 
 store.subscribe(() => {
     setLocalStorage("store", store.getState().CartReducer);
-    setLocalStorage("token", store.getState().UserReducer);
+    setLocalStorage("user", store.getState().UserReducer);
 })
 
 export default store;

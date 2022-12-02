@@ -4,7 +4,7 @@ import {postApi} from "../../utils/network";
 import {SWAPI_AUTH_ROOT} from "../../constants/api";
 import {useDispatch} from "react-redux";
 import {setUser} from "../../store/actions";
-import {redirect, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const AuthPage = () => {
     const [email, setEmail] = useState("");
@@ -44,7 +44,13 @@ const AuthPage = () => {
                     password: password,
                     email: email
                 });
-            dispatch(setUser(res.token));
+            console.log(res);
+            dispatch(setUser({
+                id: res.users.id,
+                name: res.users.username,
+                email: res.users.email,
+                token: res.token
+            }));
             return navigate("/");
         }
     }

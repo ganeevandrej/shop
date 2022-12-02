@@ -7,7 +7,7 @@ const InputCount = ( {id, count, setCount} ) => {
     const increment = () => {
         setCount(++count);
     }
-    const decrement = (e) => {
+    const decrement = () => {
         if(count > 1) {
             setCount(--count);
         }

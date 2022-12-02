@@ -16,7 +16,7 @@ const SizeBlock = ({ setSize }) => {
     }
 
     return (
-        <div className={style.wrapper}>
+        <div className={style}>
             <span>Размер</span>
             <div className={style.btnBlock}>
                 <button className="btnActive" onClick={handleClick}>S</button>

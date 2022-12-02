@@ -1,6 +1,6 @@
 import {
     ADD_PRODUCT_TO_CART, ADD_USER,
-    REMOVE_PRODUCT_FROM_CART, REMOVE_USER,
+    REMOVE_PRODUCT_FROM_CART, REMOVE_PRODUCTS_FROM_CART, REMOVE_USER,
     UPDATE_PRODUCT_CART
 } from "../constans/actionType";
 
@@ -11,17 +11,17 @@ export const setProductToCart = product => {
     };
 }
 
-export const setUser = token => {
+export const setUser = obj => {
     return {
         type: ADD_USER,
-        payLoad: token
+        payLoad: obj
     };
 }
 
-export const removeUser = token => {
+export const removeUser = user => {
     return {
         type: REMOVE_USER,
-        payLoad: token
+        payLoad: user
     };
 }
 
@@ -29,6 +29,13 @@ export const removeProductFromCart = id => {
     return {
         type: REMOVE_PRODUCT_FROM_CART,
         payLoad: id
+    };
+}
+
+export const removeProductsFromCart = () => {
+    return {
+        type: REMOVE_PRODUCTS_FROM_CART,
+        payLoad: null
     };
 }
 
