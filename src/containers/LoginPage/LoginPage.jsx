@@ -1,10 +1,10 @@
-import React, {useState} from "react";
-import {NavLink, useNavigate} from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import style from "./LoginPage.module.css";
-import {postApi} from "../../utils/network";
-import {SWAPI_LOGIN_ROOT} from "../../constants/api";
-import {setUser} from "../../store/actions";
-import {useDispatch} from "react-redux";
+import { postApi } from "../../utils/network";
+import { SWAPI_LOGIN_ROOT } from "../../constants/api";
+import { setUser } from "../../store/actions";
+import { useDispatch } from "react-redux";
 
 const LoginPage = () => {
     const [login,setLogin] = useState("");

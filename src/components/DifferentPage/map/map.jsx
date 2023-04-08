@@ -1,9 +1,10 @@
-import style from "./map.module.css";
+import React, { useEffect } from "react";
+
 import { load } from '@2gis/mapgl';
-import {useEffect} from "react";
 
-const Map = () => {
+import style from "./map.module.css";
 
+export const Map = () => {
     const getMap = async () => {
         const mapglAPI = await load();
         const map = await new mapglAPI.Map('map-container', {
@@ -21,5 +22,3 @@ const Map = () => {
 
     return <div id="map-container"></div>;
 }
-
-export default Map;

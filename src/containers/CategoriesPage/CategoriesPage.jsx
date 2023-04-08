@@ -1,50 +1,51 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { SWAPI_PRODUCTS_ROOT } from "../../constants/api";
-import { getApi, NameToId } from "../../utils/network";
-import CategoryCookies from "../../components/CategoryPage/CategoryCookies/CategoryCookies";
-import style from "./CategoriesPage.module.css";
-import Select from "../../components/CategoryPage/Select/Select";
-import ProductsList from "../../components/CategoryPage/ProductsList/ProductsList";
-import Filters from "../../components/CategoryPage/Fiilters/Filters";
 
-const CategoriesPage = () => {
+import { withApiOnlineStore } from "../../hoc";
+
+import { ProductsList } from "../../components/CategoryPage/ProductsList";
+import { BreadCrumbs } from "../../components/CategoryPage/BreadCrumbs";
+import { Filters } from "../../components/CategoryPage/Fiilters";
+import { Select } from "../../components/CategoryPage/Select";
+
+import { NameToId, NameToIdSub, sortProducts } from "./index";
+import styles from "./CategoriesPage.module.css";
+
+const CategoriesPage = ({ apiOnlineStore }) => {
     const [products, setProducts] = useState(null);
+    const [select, setSelect] = useState('all');
     const param = useParams();
-    const id = NameToId(param.name);
+    const category_id = NameToId(param.name);
+    const subCategory_id = param.subcategory && NameToIdSub(param.name, param.subcategory);
 
-    const getProducts = async (url) => {
-        const products = await getApi(url+id);
-        setProducts(products);
-    }
-
-    const sortProduct = async (url) => {
-        const sort = await getApi(url);
-        const products = sort.filter(({category_id}) => id === category_id);
-        setProducts(products);
+    const changeSelect = (value) => {
+        const res = sortProducts(value, products);
+        setSelect(value);
+        setProducts(res);
     }
 
     useEffect(() => {
-        getProducts(SWAPI_PRODUCTS_ROOT);
-    }, [param]);
+        apiOnlineStore.getProductsByCategory(category_id, subCategory_id)
+            .then((res) => setProducts(res));
+    }, [category_id, subCategory_id, apiOnlineStore]);
 
     return (
-        <div className={style.wrapper}>
-            <div className={style.title}>
-                <h2>{param.name}</h2>
+        <div className={styles.wrapper}>
+            <div className={styles.title}>
+                <h2>{ param.name }</h2>
             </div>
             <div>
-                <div className={style.bolckCoociesAndSelect}>
-                    <CategoryCookies title={param.name} />
-                    <Select sortProduct={sortProduct}/>
+                <div className={styles.blockCookiesAndSelect}>
+                    <BreadCrumbs title={ param } />
+                    <Select select={select} setSelect={ changeSelect } />
                 </div>
-                <div className={style.filterandprodicts}>
-                    <Filters param={param}/>
-                    <ProductsList products={products} />
+                <div className={styles.filterAndProducts}>
+                    <Filters param={ param } apiOnlineStore={ apiOnlineStore } />
+                    <ProductsList products={ products } />
                 </div>
             </div>
         </div>
     );
 }
 
-export default CategoriesPage;
+export default withApiOnlineStore(CategoriesPage);

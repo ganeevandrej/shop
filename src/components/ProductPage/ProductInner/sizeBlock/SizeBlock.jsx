@@ -1,6 +1,8 @@
+import React from "react";
+
 import style from "./sizeBlock.module.css";
 
-const SizeBlock = ({ setSize }) => {
+export const SizeBlock = ({ setSize }) => {
 
     const handleClick = (e) => {
         const btnList = document.querySelectorAll(".btnActive");
@@ -27,5 +29,3 @@ const SizeBlock = ({ setSize }) => {
         </div>
     );
 }
-
-export default SizeBlock;

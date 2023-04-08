@@ -1,10 +1,13 @@
-import style from "./btnCart.module.css";
-import {setProductToCart, removeProductFromCart} from "../../../../store/actions";
-import {useDispatch} from "react-redux";
-import InputCount from "../../../inputCount/InputCount";
-import {useState} from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
-const BtnCart = ({setIsProductCart, isProductCart, size, price, id, title, articul, image}) => {
+import { InputCount } from "../../../inputCount";
+
+import { setProductToCart, removeProductFromCart } from "../../../../store/actions";
+
+import style from "./btnCart.module.css";
+
+export const BtnCart = ({setIsProductCart, isProductCart, size, price, id, title, articul, image}) => {
     const dispatch = useDispatch();
 
     const [count, setCount] = useState(1);
@@ -36,5 +39,3 @@ const BtnCart = ({setIsProductCart, isProductCart, size, price, id, title, artic
         </div>
     );
 }
-
-export default BtnCart;

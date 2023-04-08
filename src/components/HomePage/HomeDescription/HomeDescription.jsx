@@ -1,20 +1,12 @@
+import React from "react";
+import { AboutMe } from "../../DifferentPage/aboutMe";
+
 import style from "./homeDescription.module.css";
 
-const HomeDescription = () => {
+export const HomeDescription = () => {
     return (
         <div className={style.wrapper}>
-            <h2>БОЛЬШОЙ ВЫБОР ТОВАРОВ</h2>
-            <div>
-                <p>Style Shop - это гардероб, в котором собрано более 2 000 000 модных товаров: женская и мужская
-                    одежда, обувь и аксессуары. Вы можете заглянуть в него в любое время и заказать с бесплатной
-                    доставкой всё, что понравится. Это так просто!</p>
-                <p>Style Shop предлагает бесплатную доставку на всей территории СНГ. Выбирайте любые понравившиеся
-                    товары, оформляйте заказ, и мы доставим его в ближайшее время.</p>
-                <p>Делать покупки на Style Shop просто, удобно и безопасно. Заказы не нужно оплачивать заранее — оплата
-                    производится наложенным платежом в момент доставки.</p>
-            </div>
+            <AboutMe />
         </div>
     );
 }
-
-export default HomeDescription;

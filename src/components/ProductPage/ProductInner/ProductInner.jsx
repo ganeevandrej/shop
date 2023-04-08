@@ -1,10 +1,14 @@
-import style from "./productInner.module.css";
-import {IMG_PRODUCTS} from "../../../constants/api";
-import React, {useState} from "react";
-import SizeBlock from "./sizeBlock/SizeBlock";
-import BtnCart from "./BtnCart/BtnCart";
+import React, { useState } from "react";
 
-const ProductInner = ({setIsProductCart, isProductCart, image, title, description, price, id, articul, isBoolean}) => {
+import { SizeBlock } from "./sizeBlock";
+import { BtnCart } from "./BtnCart";
+
+import { IMG_PRODUCTS } from "../../../constants/api";
+
+import style from "./productInner.module.css";
+
+export const ProductInner =
+    ({ setIsProductCart, isProductCart, image, title, description, price, id, articul, isBoolean }) => {
 
     const [size, setSize] = useState("S");
 
@@ -35,5 +39,3 @@ const ProductInner = ({setIsProductCart, isProductCart, image, title, descriptio
         </div>
     );
 }
-
-export default ProductInner;

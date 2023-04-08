@@ -1,19 +1,19 @@
-import style from "./productsList.module.css";
-import {NavLink} from "react-router-dom";
-import {IMG_PRODUCTS} from "../../../constants/api";
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-const ProductsList = ({products}) => {
+import style from "./productsList.module.css";
+
+export const ProductsList = ({ products }) => {
     return (
         <div className={style.blockProduct}>
             {products && (
-                products.map( ({image, title, price, id}, index) => {
+                products.map( ({ image, title, price, id }) => {
                     return (
-                        <div key={index} className={style.itemProduct}>
+                        <div key={id} className={style.itemProduct}>
                             <NavLink to={`/product/${id}`}>
-                                <img src={IMG_PRODUCTS+image} alt=""/>
-                                <span>{title}</span>
-                                <span>{price} руб</span>
+                                <img src={image} alt=""/>
+                                <span>{ title }</span>
+                                <span>{ price } руб</span>
                             </NavLink>
                         </div>
                     );
@@ -22,5 +22,3 @@ const ProductsList = ({products}) => {
         </div>
     );
 }
-
-export default ProductsList;

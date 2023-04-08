@@ -1,33 +1,19 @@
-import style from "./filters.module.css";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+
+import { ItemList } from "./ItemList";
+
 import imgTop from "./img/img_top.svg";
 import imgBottom from "./img/img_bottom.svg";
-import React, {useEffect, useState} from "react";
-import {getApi} from "../../../utils/network";
-import {SWAPI_CATEGORY_ROOT, SWAPI_SUBCATEGORY_ROOT} from "../../../constants/api";
 
-const Filters = ( {param} ) => {
-    const [filters, setFilters] = useState(null);
+import style from "./filters.module.css";
 
-    const getData = async (categoryURL, subCategoryURL) => {
-        const category = await getApi(categoryURL);
-        const subCategory = await getApi(subCategoryURL);
-
-        const filtersList = category.map(( {name, id} ) => {
-
-            const subcategory = subCategory.filter( ({itemId}) => itemId === id )
-            return {
-                name,
-                id,
-                subcategory
-            }
-        })
-        setFilters(filtersList);
-    }
+export const Filters = ({ param, apiOnlineStore }) => {
+    const [category, setCategory] = useState(null);
 
     useEffect(() => {
-        getData(SWAPI_CATEGORY_ROOT,SWAPI_SUBCATEGORY_ROOT);
-    }, []);
+        apiOnlineStore.getCategory()
+            .then((res) => setCategory(res));
+    }, [apiOnlineStore]);
 
     const showBlock = (e) => {
         const list = e.target.nextElementSibling;
@@ -44,38 +30,22 @@ const Filters = ( {param} ) => {
     }
 
     return (
-        <div className={style.blockFolters}>
+        <div className={style.blockFilters}>
             <h3 className={style.title}>Каталог</h3>
             <div>
                 <ul className={style.filtersList}>
-                    {filters && (
-                        filters.map( ({name, subcategory, key}, index ) => {
-                            return (
-                                <li className={style.filtersItem} key={index}>
-                                    <NavLink to={`/category/${name}`} >
-                                        <span>{name}</span>
-                                    </NavLink>
-                                    <img className={style.img} onClick={showBlock}
-                                         src={name === param.name ? imgBottom : imgTop} alt=""/>
-                                    <ul className={name === param.name ? "activeBlock" : style.subcategory}>
-                                        {subcategory.map( (item) => {
-                                            return (
-                                                <li key={item.id}>
-                                                    <NavLink to={`/category/${name}/${item.name}`}>
-                                                        <span>{item.name}</span>
-                                                    </NavLink>
-                                                </li>
-                                            );
-                                        })}
-                                    </ul>
-                                </li>
-                            );
-                        })
+                    { category && category.map((item) => {
+                        return (
+                            <ItemList
+                                key={ item.id }
+                                showBlock={ showBlock }
+                                item={ item }
+                                param={ param }
+                            />
+                        );}
                     )}
                 </ul>
             </div>
         </div>
     );
 }
-
-export default Filters;

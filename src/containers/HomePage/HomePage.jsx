@@ -1,12 +1,14 @@
-import './HomePage.module.css';
-import style from "./HomePage.module.css";
-import Slider from "../../components/HomePage/Slider/Slider";
-import Banners from "../../components/HomePage/Banners/Banners";
-import HomeCategories from "../../components/HomePage/HomeCategories/HomeCategories";
-import Popular from "../../components/HomePage/Popular/Popular";
-import HomeDescription from "../../components/HomePage/HomeDescription/HomeDescription";
+import React from "react";
 
-const HomePage = () => {
+import Popular from "../../components/HomePage/Popular/Popular";
+import { Slider } from "../../components/HomePage/Slider";
+import { Banners } from "../../components/HomePage/Banners";
+import { HomeCategories } from "../../components/HomePage/HomeCategories";
+import { HomeDescription } from "../../components/HomePage/HomeDescription";
+
+import style from "./HomePage.module.css";
+
+export const HomePage = () => {
   return (
       <div className={style.wrapper}>
           <Slider />
@@ -18,5 +20,3 @@ const HomePage = () => {
 
   );
 }
-
-export default HomePage;

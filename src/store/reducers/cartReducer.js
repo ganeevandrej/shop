@@ -5,7 +5,7 @@ import {
     REMOVE_PRODUCTS_FROM_CART,
     UPDATE_PRODUCT_CART
 } from "../constans/actionType";
-import {getLocalStorage} from "../../utils/LocalStorage";
+import { getLocalStorage } from "../../utils/LocalStorage";
 
 const initialState = getLocalStorage('store');
 
@@ -19,7 +19,6 @@ const CartReducer = (state = initialState, action) => {
         case REMOVE_PRODUCT_FROM_CART:
             return omit(state, [action.payLoad]);
         case REMOVE_PRODUCTS_FROM_CART:
-            debugger
             return {}
 
         case UPDATE_PRODUCT_CART:

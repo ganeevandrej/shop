@@ -1,8 +1,11 @@
-import style from "./inputCount.module.css";
+import React from "react";
+
 import plus from "./img/1828921.png";
 import minus from "./img/32320.png";
 
-const InputCount = ( {id, count, setCount} ) => {
+import style from "./inputCount.module.css";
+
+export const InputCount = ( {id, count, setCount} ) => {
 
     const increment = () => {
         setCount(++count);
@@ -26,5 +29,3 @@ const InputCount = ( {id, count, setCount} ) => {
         </div>
     );
 }
-
-export default InputCount;

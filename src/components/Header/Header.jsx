@@ -1,12 +1,13 @@
 import React from 'react';
+import { NavLink } from "react-router-dom";
+
+import NavLeft from "./Navleft";
+import { NavRight } from "./NavRight";
+
 import logo from "./img/logo.png"
 import style from "./header.module.css"
-import {NavLink} from "react-router-dom";
-import NavLeft from "./Navleft/NavLeft";
-import NavRight from "./NavRight/NavRight";
 
-const Header = () => {
-
+export const Header = () => {
     return (
         <>
             <div className={style.logo}>
@@ -21,5 +22,3 @@ const Header = () => {
         </>
     );
 }
-
-export default Header;

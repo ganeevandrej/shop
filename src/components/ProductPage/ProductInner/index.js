@@ -1,0 +1,1 @@
+export { ProductInner } from "./ProductInner";

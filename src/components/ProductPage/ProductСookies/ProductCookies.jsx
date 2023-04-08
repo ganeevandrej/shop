@@ -1,9 +1,11 @@
-import style from "./productCookies.module.css";
-import {NavLink} from "react-router-dom";
 import React from "react";
+import {NavLink} from "react-router-dom";
+
 import homeIcon from "./img/720.png";
 
-const ProductCookies = ({title, category, subcategory}) => {
+import style from "./productCookies.module.css";
+
+export const ProductCookies = ({title, category, subcategory}) => {
     return (
         <div className={style.wrapper}>
             <NavLink to="/">
@@ -15,5 +17,3 @@ const ProductCookies = ({title, category, subcategory}) => {
         </div>
     );
 }
-
-export default ProductCookies;

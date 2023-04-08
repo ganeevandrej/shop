@@ -1,22 +1,23 @@
 import React from "react";
-import {useParams} from "react-router-dom";
-import DifferentCookies from "../../components/DifferentPage/cookies/differentCookies";
-import Payment from "../../components/DifferentPage/payment/payment";
-import style from "./DifferentPage.module.css";
-import AboutMe from "../../components/DifferentPage/aboutMe/aboutMe";
-import Map from "../../components/DifferentPage/map/map";
+import { useParams } from "react-router-dom";
 
-const DifferentPage = () => {
-    const param = useParams();
+import { DifferentCookies } from "../../components/DifferentPage/cookies";
+import { Payment } from "../../components/DifferentPage/payment";
+import { AboutMe } from "../../components/DifferentPage/aboutMe";
+import { Map } from "../../components/DifferentPage/map";
+
+import style from "./DifferentPage.module.css";
+
+export const DifferentPage = () => {
+    const param = useParams().name;
+
     return (
         <div className={style.wrapper}>
-            <h1>{param.name}</h1>
-            <DifferentCookies cookies={param.name} />
-            {param.name === "оплата" && <Payment />}
-            {param.name === "о нас" && <AboutMe />}
-            {param.name === "магазины" && <Map />}
+            <h1>{ param }</h1>
+            <DifferentCookies cookies={ param } />
+            { param === "оплата" && <Payment /> }
+            { param === "о нас" && <AboutMe /> }
+            { param === "магазины" && <Map /> }
         </div>
     );
 }
-
-export default DifferentPage;

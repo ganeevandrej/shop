@@ -1,6 +1,8 @@
+import React from "react";
+
 import style from "./payment.module.css";
 
-const Payment = () => {
+export const Payment = () => {
     return (
         <div>
             <h4>Оплата наличными или банковской картой.</h4>
@@ -20,5 +22,3 @@ const Payment = () => {
         </div>
     );
 }
-
-export default Payment;

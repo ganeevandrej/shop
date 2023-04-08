@@ -43,9 +43,10 @@ const NewOrderPage = () => {
                 price: price,
                 order: Number(res["id"]),
             });
-            return navigate("/");
+            console.log("Привет");
         });
-        alert("ваш заказ успешно оформлен");
+        console.log(products);
+        navigate("/");
     }
 
     useEffect(() => {

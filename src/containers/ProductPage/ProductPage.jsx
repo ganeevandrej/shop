@@ -1,13 +1,18 @@
-import React, {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
-import {getApi} from "../../utils/network";
-import {SWAPI_CATEGORY_ROOT, SWAPI_PRODUCT_ROOT, SWAPI_SUBCATEGORY_ROOT} from "../../constants/api";
-import ProductCookies from "../../components/ProductPage/ProductСookies/ProductCookies";
-import style from "./ProductPage.module.css"
-import ProductInner from "../../components/ProductPage/ProductInner/ProductInner";
-import {useSelector} from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
-const ProductPage = () => {
+import { withApiOnlineStore } from "../../hoc";
+
+import { ProductCookies } from "../../components/ProductPage/ProductСookies";
+import { ProductInner } from "../../components/ProductPage/ProductInner";
+
+import { SWAPI_CATEGORY_ROOT, SWAPI_PRODUCT_ROOT, SWAPI_SUBCATEGORY_ROOT } from "../../constants/api";
+import { getApi } from "../../utils/network";
+
+import style from "./ProductPage.module.css"
+
+const ProductPage = ({ apiOnlineStore }) => {
 
     const param = useParams();
     const [product, setProduct] = useState(null);
@@ -61,4 +66,4 @@ const ProductPage = () => {
     );
 }
 
-export default ProductPage;
+export default withApiOnlineStore(ProductPage);

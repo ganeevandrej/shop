@@ -1,10 +1,15 @@
-import React, {useState} from "react";
-import style from "./SearchPage.module.css";
-import {getApi} from "../../utils/network";
-import {SWAPI_SEARCH_ROOT} from "../../constants/api";
-import ProductList from "../../components/Search/ProductList/productList";
+import React, { useState } from "react";
 
-const SearchPage = () => {
+import { withApiOnlineStore } from "../../hoc";
+
+import { ProductList } from "../../components/Search/ProductList";
+
+import { getApi } from "../../utils/network";
+import { SWAPI_SEARCH_ROOT } from "../../constants/api";
+
+import style from "./SearchPage.module.css";
+
+const SearchPage = ({ apiOnlineStore }) => {
     const [string, setString] = useState(null);
     const [products, setProducts] = useState(null);
 
@@ -37,4 +42,4 @@ const SearchPage = () => {
     );
 }
 
-export default SearchPage;
+export default withApiOnlineStore(SearchPage);

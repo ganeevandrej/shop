@@ -1,10 +1,11 @@
-import style from "./productList.module.css";
-import {NavLink} from "react-router-dom";
-import {IMG_PRODUCTS} from "../../../constants/api";
 import React from "react";
+import { NavLink } from "react-router-dom";
 
-const ProductList = ({products}) => {
-    console.log(products);
+import { IMG_PRODUCTS } from "../../../constants/api";
+
+import style from "./productList.module.css";
+
+export const ProductList = ({ products }) => {
     return (
         <div className={style.wrapper}>
             {products.map( (item, index) => {
@@ -22,5 +23,3 @@ const ProductList = ({products}) => {
         </div>
     );
 }
-
-export default ProductList;

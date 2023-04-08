@@ -1,8 +1,11 @@
-import style from "./differentCookies.module.css";
-import {NavLink} from "react-router-dom";
+import React from "react";
+import { NavLink } from "react-router-dom";
+
 import homeIcon from "./img/720.png";
 
-const DifferentCookies = ({cookies}) => {
+import style from "./differentCookies.module.css";
+
+export const DifferentCookies = ({cookies}) => {
     return (
         <div className={style.wrapper}>
             <NavLink to="/">
@@ -12,5 +15,3 @@ const DifferentCookies = ({cookies}) => {
         </div>
     );
 }
-
-export default DifferentCookies;

@@ -1,25 +1,23 @@
+import React from "react";
 import style from "./select.module.css";
-import {SWAPI_ROOT} from "../../../constants/api";
 
-const Select = ( {sortProduct} ) => {
+export const Select = ({ select, setSelect }) => {
 
     const changeSort = (e) => {
-        const url = e.target.value;
-        sortProduct(SWAPI_ROOT+url);
+        const value = e.target.value;
+        setSelect(value);
     }
 
     return (
         <div className={style.blockSelect}>
             <span>Сортировать</span>
-            <select className={style.select}  onChange={changeSort} name="Сортировка">
-                <option value="products/sort/id">По умолчанию</option>
-                <option value="products/sort/price">По возрастанию цены</option>
-                <option value="products/sort/down/price">По убыванию цены</option>
-                <option value="products/sort/title">По алфавиту А-Я</option>
-                <option value="products/sort/down/title">По алфавиту Я-А</option>
+            <select className={style.select} value={ select }  onChange={ changeSort } name="Сортировка">
+                <option value="all">По умолчанию</option>
+                <option value="ascending">По возрастанию цены</option>
+                <option value="descending">По убыванию цены</option>
+                <option value="alphabeticalUp">По алфавиту А-Я</option>
+                <option value="AlphabeticalDown">По алфавиту Я-А</option>
             </select>
         </div>
     );
 }
-
-export default Select;
