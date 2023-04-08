@@ -38,7 +38,7 @@ export const sortProducts = (select, products) => {
     const newArr = [...products];
     switch (select) {
         case "all":
-            return newArr.sort((first, second) => first.id - second.id );;
+            return newArr.sort((first, second) => first.id - second.id );
         case "ascending":
             return newArr.sort((first, second) => first.price - second.price );
         case "descending":
