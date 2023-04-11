@@ -5,6 +5,11 @@
     margin: auto;
 }
 
+.wrapperBlockCart {
+    display: flex;
+    margin: 15px 0;
+}
+
 .wrapper img {
     width: 380px;
     border-radius: 5px;

@@ -2,27 +2,19 @@ import React, { useState } from "react";
 
 import { withApiOnlineStore } from "../../hoc";
 
-import { ProductList } from "../../components/Search/ProductList";
-
-import { getApi } from "../../utils/network";
-import { SWAPI_SEARCH_ROOT } from "../../constants/api";
-
 import style from "./SearchPage.module.css";
+import {ProductList} from "../../components/Search/ProductList/productList";
 
 const SearchPage = ({ apiOnlineStore }) => {
-    const [string, setString] = useState(null);
-    const [products, setProducts] = useState(null);
+    const [search, setSearch] = useState("");
+    const [products, setProducts] = useState([]);
 
     const onChangeInput = (e) => {
-        setString(e.target.value);
+        setSearch(e.target.value);
     }
 
     const searchClick = async () => {
-        if(string) {
-            const getProduct = await getApi(SWAPI_SEARCH_ROOT+string);
-            setProducts(getProduct);
-        }
-        return false;
+        search && apiOnlineStore.search(search).then((res) => setProducts(res));
     }
 
     return (
@@ -31,13 +23,14 @@ const SearchPage = ({ apiOnlineStore }) => {
             <div className={style.searchBlock}>
                 <div className={style.form}>
                     <span>Введите ключевые слова для поиска</span>
-                    <input type="text" onChange={onChangeInput} placeholder="Поиск"/>
-                    <button onClick={searchClick} className={style.submit}></button>
+                    <input type="text" onChange={ onChangeInput } value={ search } placeholder="Поиск"/>
+                    <button onClick={ searchClick } className={style.submit}></button>
                 </div>
             </div>
-            {products ?
-                <ProductList products={products} /> :
-                <div className={style.description}>Введите ключевые слова для поиска</div>}
+            {products
+                ? <ProductList products={ products } />
+                : <div className={style.description}>Введите ключевые слова для поиска</div>
+            }
         </div>
     );
 }

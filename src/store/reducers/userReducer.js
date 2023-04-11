@@ -2,7 +2,11 @@ import {getLocalStorage} from "../../utils/LocalStorage";
 import {ADD_USER, REMOVE_USER} from "../constans/actionType";
 import {omit} from "lodash";
 
-const initialState = getLocalStorage('user');
+// const initialState = getLocalStorage('user');
+
+const initialState = {
+    user: {}
+}
 
 const UserReducer = (state = initialState, action) => {
     switch (action.type) {

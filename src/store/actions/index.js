@@ -1,47 +1,44 @@
 import {
     ADD_PRODUCT_TO_CART, ADD_USER,
-    REMOVE_PRODUCT_FROM_CART, REMOVE_PRODUCTS_FROM_CART, REMOVE_USER,
-    UPDATE_PRODUCT_CART
-} from "../constans/actionType";
+    REMOVE_PRODUCT_FROM_CART, REMOVE_PRODUCTS_FROM_CART,
+    REMOVE_USER, UPDATE_PRODUCT_CART } from "../constans/actionType";
 
-export const setProductToCart = product => {
+export const addItemToCart = product => {
     return {
         type: ADD_PRODUCT_TO_CART,
-        payLoad: product
+        payload: product
     };
 }
-
 export const setUser = obj => {
     return {
         type: ADD_USER,
-        payLoad: obj
+        payload: obj
     };
 }
-
 export const removeUser = user => {
     return {
         type: REMOVE_USER,
-        payLoad: user
+        payload: user
     };
 }
-
 export const removeProductFromCart = id => {
     return {
         type: REMOVE_PRODUCT_FROM_CART,
-        payLoad: id
+        payload: id
     };
 }
-
 export const removeProductsFromCart = () => {
     return {
         type: REMOVE_PRODUCTS_FROM_CART,
-        payLoad: null
+        payload: null
     };
 }
-
-export const upDateProductCart = data => {
+export const upDateProductCart = (id, action) => {
     return {
         type: UPDATE_PRODUCT_CART,
-        payLoad: data
+        payload: {
+            id,
+            operator: action
+        }
     };
 }

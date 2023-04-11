@@ -1,17 +1,9 @@
 export { default } from './CategoriesPage';
 
-export const NameToId = (name) => {
-    const obj = {
-        "Мужчины": 1,
-        "Женщины": 2,
-        "Аксессуары": 3
-    }
-
-    return obj[name] || false;
-}
-export const NameToIdSub = (category, subCategory) => {
+export const NameToId = (category, subCategory) => {
     const obj = {
         "Мужчины": {
+            "key": 1,
             "Майки": 3,
             "Джинсы": 4,
             "Шорты": 11,
@@ -19,6 +11,7 @@ export const NameToIdSub = (category, subCategory) => {
             "Рубашки": 13
         },
         "Женщины": {
+            "key": 2,
             "Майки": 1,
             "Шорты": 2,
             "Свитшоты": 8,
@@ -26,13 +19,17 @@ export const NameToIdSub = (category, subCategory) => {
             "Джинсы": 10
         },
         "Аксессуары": {
+            "key": 3,
             "Шляпы": 5,
             "Чехлы": 6,
             "Ремни": 7
         }
     }
 
-    return obj[category][subCategory] || false;
+    return {
+        category: obj[category]["key"],
+        subCategory: obj[category][subCategory]
+    }
 }
 export const sortProducts = (select, products) => {
     const newArr = [...products];

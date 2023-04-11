@@ -8,7 +8,7 @@ import search from "./img/search.png";
 import style from "./navRight.module.css";
 
 export const NavRight = () => {
-    const countItemFromCart = Object.keys(useSelector(state => state.CartReducer)).length;
+    const { productCart } = useSelector((state) => state.CartReducer);
 
     return (
         <div className={style.right}>
@@ -20,7 +20,7 @@ export const NavRight = () => {
             </NavLink>
             <NavLink className={style.cart} to="/cart_items">
                 <img src={cart} alt="корзина"/>
-                <span>{countItemFromCart}</span>
+                <span>{ productCart.length }</span>
             </NavLink>
         </div>
     );

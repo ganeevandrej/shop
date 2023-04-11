@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from "react";
-import {NavLink} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {removeProductsFromCart, removeUser} from "../../store/actions";
-import {getApi} from "../../utils/network";
-import {SWAPI_LOGOUT_ROOT, SWAPI_ORDERS_ROOT} from "../../constants/api";
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import { removeProductsFromCart, removeUser } from "../../store/actions";
+import { getApi } from "../../utils/network";
+import { SWAPI_LOGOUT_ROOT, SWAPI_ORDERS_ROOT } from "../../constants/api";
+
 import style from "./ProfilePage.module.css";
 
 const ProfilePage = () => {

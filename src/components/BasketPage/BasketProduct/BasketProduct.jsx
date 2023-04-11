@@ -1,39 +1,32 @@
-import style from "./basketProduct.module.css";
-import {IMG_PRODUCTS} from "../../../constants/api";
 import React from "react";
-import {NavLink} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {removeProductFromCart} from "../../../store/actions";
-import remove from "./img/1828778.png";
+import { NavLink } from "react-router-dom";
+
 import InputCountCart from "./inputCountCart/InputCountCart";
 
-const BasketProduct = ({product}) => {
+import style from "./basketProduct.module.css";
+import remove from "./img/1828778.png";
 
-    const dispatch = useDispatch();
-
-    const removeItem = (e) => {
-        const id = e.target.id;
-        dispatch(removeProductFromCart(id));
-    }
+const BasketProduct = ({ product, removeItem, updateItem }) => {
+    const { id, image, title, articul, count, size, price } = product;
 
     return (
         <div className={style.item}>
             <div className={style.ImgItem}>
-                <img src={IMG_PRODUCTS + product.img} alt=""/>
+                <img src={ image } alt=""/>
             </div>
             <div className={style.titleItem}>
-                <NavLink to={`/product/${product.id}`}>{`${product.title} (${product.size})`}</NavLink>
-                <span className={style.articul}>арт. {product.articul}</span>
+                <NavLink to={`/product/${id}`}>{`${ title } (${ size })`}</NavLink>
+                <span className={style.articul}>арт. { articul }</span>
             </div>
             <div className={style.priceItem}>
-                <InputCountCart id={product.id} count={product.countProduct} />
+                <InputCountCart updateItem={(id, action) => updateItem(id, action)} count={ count } item_id={id} />
                 x
-                <span>{product.price} руб</span>
+                <span>{ price } руб</span>
                 =
-                <span>{product.generalPrice} руб</span>
+                <span>{ price * count } руб</span>
             </div>
             <div className={style.remove}>
-                <img onClick={removeItem} id={product.id} src={remove} alt=""/>
+                <img onClick={ () => removeItem(id) } src={ remove } alt="" />
             </div>
         </div>
     );

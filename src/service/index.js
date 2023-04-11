@@ -1,7 +1,9 @@
+import { idToName } from "../containers/ProductPage";
 
 
 export class ApiOnlineStore {
     _baseUrl = "https://aaaa228.pythonanywhere.com/api/";
+    _domain = "https://aaaa228.pythonanywhere.com/";
     _urlCategoryImg = "https://static.insales-cdn.com/images/collections";
     _urlProductsImg = "https://static.insales-cdn.com/images/products";
 
@@ -27,17 +29,34 @@ export class ApiOnlineStore {
         return res.map(this._transformSubcategory);
     };
 
-    getProduct = async (productId) => await this.getData(`${this._baseUrl}category/${productId}`);
+    getProduct = async (productId) => {
+        const res = await this.getData(`${this._baseUrl}product/${productId}`);
+        return this._transformProduct(res);
+    }
 
     getPopularProduct = async () => {
         const res = await this.getData(`${this._baseUrl}products/popular/`);
         return res.map(this._transformPopularProducts);
     }
 
-    getProductsByCategory = async (categoryId, subcategoryId) => {
-        const data = await this.getData(`${this._baseUrl}products/category/${categoryId}`);
+    search = async (str) => {
+        const data = await this.getData(`${this._baseUrl}search/?search=${str}`);
+        const res = data.map((item) => {
+                const image = item.image.slice(this._domain.length - 1);
+                return {
+                    ...item,
+                    image
+                }
+            }
+        );
+        return res.map(this._transformProduct);
+    }
+
+    getProductsByCategory = async (category, subcategory) => {
+        const data = await this.getData(`${this._baseUrl}products/category/${category}`);
         const res = data.map(this._transformProduct);
-        return subcategoryId ? res.filter(({ subcategory_id }) => subcategory_id === subcategoryId) : res;
+        const { subCategoryName } = idToName(category, subcategory);
+        return subCategoryName ? res.filter(({ subCategory_name }) => subCategory_name === subCategoryName) : res;
     }
 
     _transformCategory = (arrayCategory, arraySubcategory) => {
@@ -64,20 +83,25 @@ export class ApiOnlineStore {
     _transformPopularProducts = ({ id, title, image, price, category_id }) => {
         return {
             id,
-            name: title,
+            title,
             image: this._urlProductsImg + image,
             price,
             category_id
         }
     }
 
-    _transformProduct = ({ image, title, price, id, subcategoryId }) => {
+    _transformProduct = ({ image, title, price, id, articul, subcategoryId, category_id, isBoolean, description }) => {
+        const { categoryName, subCategoryName } = idToName(category_id, subcategoryId);
         return {
             id,
             title,
-            image: this._urlProductsImg + image,
             price,
-            subcategory_id: subcategoryId
+            articul,
+            description,
+            categoryName,
+            subCategory_name: subCategoryName,
+            isAvailability: isBoolean,
+            image: this._urlProductsImg + image,
         }
     }
 }

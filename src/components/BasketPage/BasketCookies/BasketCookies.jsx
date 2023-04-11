@@ -1,7 +1,8 @@
-import style from "./basketCookies.module.css";
-import {NavLink} from "react-router-dom";
-import homeIcon from "./img/720.png";
 import React from "react";
+import { NavLink } from "react-router-dom";
+
+import homeIcon from "./img/720.png";
+import style from "./basketCookies.module.css";
 
 const BasketCookies = () => {
     return (
